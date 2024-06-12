@@ -1,16 +1,20 @@
 import React from 'react';
 import Header from '../Header/Header';
 import './CreateGame.css'
-import popupLogo from '../../images/popupLogo.svg'
+import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function CreateGame(props) {
-    const [isOpened, setIsOpened] = React.useState(false)
+    const [isClassOpened, setIsClassOpened] = React.useState(false)
+    const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
     const [level, setLevel] = React.useState(0)
     const [checkpoints, setCheckpoints] = React.useState({})
+    const [checkpointNumber, setCheckpointNumber] = React.useState(1)
     const [checkpointValue, setCheckpointValue] = React.useState({
-        taskCount: '',
-        topic: '',
-        link: '',
+        checkpointNumber: {
+            taskCount: '',
+            topic: '',
+            link: '',
+        }
     })
     const [formValue, setFormValue] = React.useState({
         name: '',
@@ -38,23 +42,23 @@ function CreateGame(props) {
     }
 
     function handleClassClick() {
-        setIsOpened(true)
+        setIsClassOpened(true)
     }
 
-    function handleCloseClick() {
-        props.onClose()
-    }
-
-    function handleCheckpointSubmit(evt) {
-        evt.preventDefault()
+    function handleCheckpointSubmit() {
+        setCheckpointNumber(checkpointNumber +1)
         {/* придумать способ добавки точек */}
     }
 
     function handleSubmit(evt) {
         evt.preventDefault()
         setLevel(level + 1)
-        if (level === 2) {
+        if (level === 0) {
+            setIsCheckpointOpened(true)
+        }
+        else if (level === 2) {
             props.onSubmit(formValue)
+            setIsCheckpointOpened(false)
         }
     }
 
@@ -67,7 +71,7 @@ function CreateGame(props) {
                 <form className='create__form'>
                     <input className='create__input' type='text' name='name' placeholder='Введите название игры' onChange={handleChange} value={formValue.name} required />
                     <button className='create__input' onClick={handleClassClick}>Выберите класс, на который рассчитана игра</button>
-                    <div className={`create__container ${isOpened ? 'create__container_opened' : ''}`}>
+                    <div className={`create__container ${isClassOpened ? 'create__container_opened' : ''}`}>
                         <input className='create__input create__input_class' id='1 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
                         <label className='create__label' for="1 класс">1 класс</label>
                         <input className='create__input create__input_class' id='2 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
@@ -102,26 +106,8 @@ function CreateGame(props) {
                     <button className='create__input create__input_submit' type='submit' onClick={handleSubmit}>Создать игру</button>
                 </form>
             </main> :
-            <div className='popup'>
-                <div className='popup__container'>
-                    <div className='popup__flexbox'>
-                        <img src={popupLogo} alt='логотип' />
-                        <p className='popup__name'>Создание игры</p>
-                        <button className='popup__close' onClick={handleCloseClick}></button>
-                    </div>
-                    <h1 className='popup__header'>1 точка:</h1>
-                    <form className='popup__form'>
-                        <input className='popup__input' type='text' name='topic'placeholder='Тема' 
-                        value={checkpointValue.topic} onChange={handleCheckpointChange} required />
-                        <input className='popup__input' type='number' name='task-count'placeholder='Кол-во заданий' 
-                        value={checkpointValue.taskCount} onChange={handleCheckpointChange} required />
-                        <input className='popup__input' type='url' name='link' placeholder='Ссылка на теорию'
-                        value={checkpointValue.link} onChange={handleCheckpointChange} required />
-                        <button className='popup__submit' type='submit' onClick={handleCheckpointSubmit}>Добавить точку</button>
-                        <button className='popup__submit' type='submit' onClick={handleSubmit}>Создать игру</button>
-                    </form>
-                </div>
-            </div>
+            <PopupWithForm name='create' formValue={formValue} checkpointValue={checkpointValue} onCheckpointChange={handleCheckpointChange} onCheckpointSubmit={handleCheckpointSubmit}
+            onClose={props.onClose} onSubmit={handleSubmit} checkpointNumber={checkpointNumber} isOpened={props.isOpened} />
             }
         </>
     )
