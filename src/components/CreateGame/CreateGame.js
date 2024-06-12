@@ -49,6 +49,13 @@ function CreateGame(props) {
         const checkpoints_copy= checkpoints.slice()
         checkpoints_copy.push(checkpointValue)
         setCheckpoints(checkpoints_copy)
+        setCheckpointValue({
+        checkpointNumber: {
+            taskCount: '',
+            topic: '',
+            link: '',
+        }
+    })
     }
 
     function handleSubmit(evt) {
