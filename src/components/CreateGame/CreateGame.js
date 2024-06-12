@@ -7,7 +7,7 @@ function CreateGame(props) {
     const [isClassOpened, setIsClassOpened] = React.useState(false)
     const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
     const [level, setLevel] = React.useState(0)
-    const [checkpoints, setCheckpoints] = React.useState({})
+    const [checkpoints, setCheckpoints] = React.useState([])
     const [checkpointNumber, setCheckpointNumber] = React.useState(1)
     const [checkpointValue, setCheckpointValue] = React.useState({
         checkpointNumber: {
@@ -19,7 +19,6 @@ function CreateGame(props) {
     const [formValue, setFormValue] = React.useState({
         name: '',
         class: '',
-        countCheckpoint: '',
         status: '',
         background: '',
         checkpoint: checkpoints,
@@ -47,7 +46,9 @@ function CreateGame(props) {
 
     function handleCheckpointSubmit() {
         setCheckpointNumber(checkpointNumber +1)
-        {/* придумать способ добавки точек */}
+        const checkpoints_copy= checkpoints.slice()
+        checkpoints_copy.push(checkpointValue)
+        setCheckpoints(checkpoints_copy)
     }
 
     function handleSubmit(evt) {
@@ -94,8 +95,7 @@ function CreateGame(props) {
                         <label className='create__label' for="10 класс">10 класс</label>
                         <input className='create__input create__input_class' id='11 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
                         <label className='create__label' for="11 класс">11 класс</label>
-                    </div>                    
-                    <input className='create__input' type='number' name='countCheckpoint' placeholder='Количество заданий с точками' onChange={handleChange} value={formValue.countCheckpoint} required />
+                    </div>
                     <div className='create__flexbox'>
                         <input className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
                         <label className='create__label' for="Приватная">Приватная</label>
