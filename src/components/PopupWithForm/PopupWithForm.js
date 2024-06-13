@@ -13,7 +13,7 @@ function PopupWithForm(props) {
 
     function handleCheckpointChange(evt) {
         evt.preventDefault()
-        props.onCheckpointChange()
+        props.onCheckpointChange(evt)
     }
 
     function handleCheckpointSubmit() {
@@ -75,7 +75,7 @@ function PopupWithForm(props) {
                     <>
                         <input className='popup__input' type='text' name='topic'placeholder='Тема' 
                         value={props.checkpointValue.topic} onChange={handleCheckpointChange} required />
-                        <input className='popup__input' type='number' name='task-count'placeholder='Кол-во заданий' 
+                        <input className='popup__input' type='number' name='taskCount'placeholder='Кол-во заданий' 
                         value={props.checkpointValue.taskCount} onChange={handleCheckpointChange} required />
                         <input className='popup__input' type='url' name='link' placeholder='Ссылка на теорию'
                         value={props.checkpointValue.link} onChange={handleCheckpointChange} required />

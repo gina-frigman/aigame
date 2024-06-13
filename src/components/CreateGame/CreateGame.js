@@ -5,17 +5,14 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function CreateGame(props) {
     const [isClassOpened, setIsClassOpened] = React.useState(false)
-    const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
     const [level, setLevel] = React.useState(0)
-    const [checkpoints, setCheckpoints] = React.useState([])
     const [checkpointNumber, setCheckpointNumber] = React.useState(1)
     const [checkpointValue, setCheckpointValue] = React.useState({
-        checkpointNumber: {
-            taskCount: '',
-            topic: '',
-            link: '',
-        }
+        taskCount: '',
+        topic: '',
+        link: '',
     })
+    const [checkpoints, setCheckpoints] = React.useState([])
     const [formValue, setFormValue] = React.useState({
         name: '',
         class: '',
@@ -40,40 +37,45 @@ function CreateGame(props) {
         })
     }
 
-    function handleClassClick() {
-        setIsClassOpened(true)
-    }
-
     function handleCheckpointSubmit() {
         setCheckpointNumber(checkpointNumber +1)
         const checkpoints_copy= checkpoints.slice()
         checkpoints_copy.push(checkpointValue)
         setCheckpoints(checkpoints_copy)
         setCheckpointValue({
-        checkpointNumber: {
             taskCount: '',
             topic: '',
             link: '',
-        }
-    })
+        })
+        console.log(checkpoints)
+        console.log(checkpointValue)
+    }
+
+    function handleClassClick() {
+        setIsClassOpened(true)
+    }
+
+    function handleCloseClick() {
+        props.onClose()
+        setLevel(0)
+        setCheckpointNumber(1)
     }
 
     function handleSubmit(evt) {
         evt.preventDefault()
         setLevel(level + 1)
         if (level === 0) {
-            setIsCheckpointOpened(true)
+            props.onCheckpointClick()
         }
         else if (level === 2) {
             props.onSubmit(formValue)
-            setIsCheckpointOpened(false)
+            setLevel(0)
         }
     }
 
     return(
         <>
             <Header isLoggedIIn={props.isLoggedIIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
-            {level === 0 ? 
             <main className='create'>
                 <h1 className='create__header'>Создание игры</h1>
                 <form className='create__form'>
@@ -112,10 +114,9 @@ function CreateGame(props) {
                     <input className='create__input' type='file' name='background' placeholder='Прикрепите файл для фона' onChange={handleChange} value={formValue.background} required />
                     <button className='create__input create__input_submit' type='submit' onClick={handleSubmit}>Создать игру</button>
                 </form>
-            </main> :
+            </main>
             <PopupWithForm name='create' formValue={formValue} checkpointValue={checkpointValue} onCheckpointChange={handleCheckpointChange} onCheckpointSubmit={handleCheckpointSubmit}
-            onClose={props.onClose} onSubmit={handleSubmit} checkpointNumber={checkpointNumber} isOpened={props.isOpened} />
-            }
+            onClose={handleCloseClick} onSubmit={handleSubmit} checkpointNumber={checkpointNumber} isOpened={props.isOpened} />
         </>
     )
 }

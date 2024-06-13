@@ -16,6 +16,7 @@ function App() {
     const [isLoginOpened, setIsLoginOpened] = React.useState(false)
     const [isRegisterOpened, setIsRegisterOpened] = React.useState(false)
     const [isRecoveringOpened, setIsRecoveringOpened] = React.useState(false)
+    const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
     const [currentUser, setCurrentUser] = React.useState({})
     const [games, setGames] = React.useState([])
     const navigate = useNavigate()
@@ -36,20 +37,28 @@ function App() {
 
     function handleLoginClick() {
         setIsLoginOpened(true)
+        setIsRegisterOpened(false)
     }
 
     function handleRegisterClick() {
         setIsRegisterOpened(true)
+        setIsLoginOpened(false)
     }
 
     function handleRecoveringClick() {
         setIsRecoveringOpened(true)
+        setIsLoginOpened(false)
+    }
+
+    function handleCheckpointClick() {
+        setIsCheckpointOpened(true)
     }
 
     function closeAllPopups() {
         setIsLoginOpened(false)
         setIsRegisterOpened(false)
         setIsRecoveringOpened(false)
+        setIsCheckpointOpened(false)
     }
 
     function handleRegister(formValue) {
@@ -102,7 +111,7 @@ function App() {
                 onSignOutClick={handleSignOutClick} isLoggedIn={isLoggedIn} />} />
                 <Route path="/games" element={<Games isLoggedIn={isLoggedIn} />} />
                 <Route path="/create-game" element={<CreateGame isLoggedIn={isLoggedIn} onClose={closeAllPopups} onSubmit={handleCreateGame} 
-                onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onSignOutClick={handleSignOutClick} />} />
+                onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onSignOutClick={handleSignOutClick} isOpened={isCheckpointOpened} onCheckpointClick={handleCheckpointClick} />} />
                 <Route path="/profile" element={<Profile currentUser={currentUser} />} />
             </Routes>    
             <Login isOpened={isLoginOpened} onRegisterClick={handleRegisterClick} onRecoveringClick={handleRecoveringClick} onClose={closeAllPopups} onSubmit={handleLogin} />
