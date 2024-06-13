@@ -22,18 +22,18 @@ function Header(props) {
         <header className="header">
             <Link className="header__link" to='/'><img className="header__logo" src={Logo} alt="логотип" /></Link>
             <nav className="header__navbar">
-                <Link to='/' className="header_text">Главная</Link>
+                <Link to='/' className="header__text">Главная</Link>
                 <Link to='/games' className="header__text">Игры</Link>
                 <Link to='/create-game' className="header__text">Создать игру</Link>
             </nav>
             {props.isLoggedIn ? 
-                <div className="header__auth">
-                    <button className="header__button header__button_white" onClick={handleLoginClick}>Вход</button>
-                    <button className="header__button" onClick={handleRegisterClick}>Регистрация</button>
-                </div> :
                 <div className="header__profile">
-                    <button className="header__button" onClick={handleSignOutClick}>Выйти</button>
+                    <button className="header__button" onClick={handleSignOutClick}>Выход</button>
                     <Link className="header__link" to='/profile'><img src={props.avatar} alt="аватар"/></Link>
+                </div> :
+                <div className="header__auth">
+                    <button className="header__button_login" onClick={handleLoginClick}>Вход</button>
+                    <button className="header__button_register" onClick={handleRegisterClick}>Регистрация</button>
                 </div>
             }
             
