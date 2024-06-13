@@ -37,7 +37,7 @@ function PopupWithForm(props) {
                 </div>                
                 <h1 className='popup__header'>{props.name === 'login' ? 'Вход' : props.name === 'register' ? 'Регистрация' : 
                 props.name === 'recovering' ? 'Восстановление пароля' : `${props.checkpointNumber} точка:`}</h1>
-                <form className='popup__form'>
+                <form className={`popup__form ${props.name === 'register' ? 'popup__form_register' : ''}`}>
                     {props.name === 'login' ?
                     <>
                         <input className='popup__input' type='text' name='username'placeholder='Логин' 
@@ -50,19 +50,25 @@ function PopupWithForm(props) {
                     </>
                     : props.name === 'register' ?
                     <>
-                        <input className='popup__input' type='text' name='firstname'placeholder='Имя' 
-                        value={props.formValue.firstname} onChange={handleChange} required />
-                        <input className='popup__input' type='text' name='secondname'placeholder='Фамилия' 
-                        value={props.formValue.firstname} onChange={handleChange} required />
-                        <input className='popup__input' type='text' name='username'placeholder='Логин' 
-                        value={props.formValue.firstname} onChange={handleChange} required />
-                        <input className='popup__input' type='email' name='email'placeholder='E-mail' 
-                        value={props.formValue.firstname} onChange={handleChange} required />
-                        <input className='popup__input' type='password' name='password' placeholder='Придумайте пароль'
-                        value={props.formValue.username} onChange={handleChange} required />
-                        <input className='popup__input' type='password' name='repeatpassword' placeholder='Повторите пароль'
-                        value={props.formValue.username} onChange={handleChange} required />
-                        <p className='popup__text'>Уже зарегистрированы?<button className='popup__button' onClick={props.onLoginClick}>Войти</button></p>
+                        <div className='popup__flex-box'>
+                            <div className='popup__field'>
+                                <input className='popup__input' type='text' name='firstname'placeholder='Имя' 
+                                value={props.formValue.firstname} onChange={handleChange} required />
+                                <input className='popup__input' type='text' name='username'placeholder='Логин' 
+                                value={props.formValue.firstname} onChange={handleChange} required />
+                                <input className='popup__input' type='password' name='password' placeholder='Придумайте пароль'
+                                value={props.formValue.username} onChange={handleChange} required />
+                            </div>
+                            <div className='popup__field'>
+                                <input className='popup__input' type='text' name='secondname'placeholder='Фамилия' 
+                                value={props.formValue.firstname} onChange={handleChange} required />
+                                <input className='popup__input' type='email' name='email'placeholder='E-mail' 
+                                value={props.formValue.firstname} onChange={handleChange} required />
+                                <input className='popup__input' type='password' name='repeatpassword' placeholder='Повторите пароль'
+                                value={props.formValue.username} onChange={handleChange} required />
+                            </div>
+                        </div>
+                        <p className={`popup__text ${props.name === 'register' ? 'popup__text_register' : ''} `}>Уже зарегистрированы?<button className='popup__button' onClick={props.onLoginClick}>Войти</button></p>
                         <button className='popup__submit' type='submit' onClick={handleSubmit}>Зарегистрироваться</button>
                     </>
                     : props.name === 'recovering' ?

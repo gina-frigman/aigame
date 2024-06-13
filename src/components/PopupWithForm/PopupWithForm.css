@@ -29,6 +29,7 @@
 .popup__container_register {
     background: url(../../images/backgroundRegister.svg);
     max-width: 1136px;
+    width: 75%;
 }
 
 .popup__flexbox {
@@ -60,7 +61,7 @@
     border: 0;
     width: 30px;
     margin-left: 35px;
-
+    cursor: pointer;
 }
 
 .popup__header {
@@ -72,6 +73,21 @@
 .popup__form {
     display: flex;
     flex-direction: column;
+}
+
+.popup__flex-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.popup__field {
+    max-width: 366px;
+    margin-right: 10%;
+}
+
+.popup__field:last-child {
+    margin-right: 0;
 }
 
 .popup__input {
@@ -96,7 +112,12 @@
     font-size: 17px;
 }
 
+.popup__text_register {
+    text-align: center;
+}
+
 .popup__button {
+    cursor: pointer;
     border: 0;
     background-color: rgba(0, 0, 0, 0);
     text-decoration: underline;
@@ -115,6 +136,7 @@
 }
 
 .popup__submit {
+    cursor: pointer;
     min-width: 357px;
     height: 68px;
     border-radius: 15px;

@@ -26,14 +26,13 @@ function Header(props) {
                 <Link to='/games' className="header__text">Игры</Link>
                 <Link to='/create-game' className="header__text">Создать игру</Link>
             </nav>
-            {props.isLoggedIn ? 
+            {props.isLoggedIn ? <div className="header__profile">
+                    <button className="header__button" onClick={handleSignOutClick}>Выход</button>
+                    <Link className="header__link" to='/profile'><img className="header__avatar" src={props.avatar} alt="аватар"/></Link>
+                </div> :
                 <div className="header__auth">
                     <button className="header__button" onClick={handleLoginClick}>Вход</button>
-                    <button className="header__button" onClick={handleRegisterClick}>Регистрация</button>
-                </div> :
-                <div className="header__profile">
-                    <button className="header__button" onClick={handleSignOutClick}>Выйти</button>
-                    <Link className="header__link" to='/profile'><img src={props.avatar} alt="аватар"/></Link>
+                    <button className="header__button header__button_blue" onClick={handleRegisterClick}>Регистрация</button>
                 </div>
             }
             
