@@ -9,6 +9,7 @@ import jupiter from "../../images/Jupiter.svg"
 import star_round from "../../images/star_round.svg"
 import star from "../../images/star.svg"
 import nebula from "../../images/nebula.svg"
+import comet from "../../images/comet.svg"
 
 function Main(props) {
     return (
@@ -24,7 +25,16 @@ function Main(props) {
             </div>
             <main className='main'>
             
-                <div className='main__bg'>
+            <div className='main__bg'>
+                    <div className='comet comet_top-center'>
+                        <img src={comet} alt=""/>
+                    </div>
+                    <div className='comet comet_top-right'>
+                        <img src={comet} alt=""/>
+                    </div>
+                    <div className='comet comet_right'>
+                        <img src={comet} width="110px" alt=""/>
+                    </div>
                     <div className='star_round star_round-free'>
                         <img src={star_round} width='10px' alt='' />
                     </div>
