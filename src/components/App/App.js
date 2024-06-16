@@ -10,6 +10,7 @@ import Recovering from "../Recovering/Recovering";
 import { authApi } from "../../utils/authApi";
 import { mainApi } from "../../utils/mainApi";
 import Profile from "../Profile/Profile";
+import GameMap from "../GameMap/GameMap";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -17,9 +18,14 @@ function App() {
     const [isRegisterOpened, setIsRegisterOpened] = React.useState(false)
     const [isRecoveringOpened, setIsRecoveringOpened] = React.useState(false)
     const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
+    const [isAnswerOpened, setIsAnswerOpened] = React.useState(false)
+    const [checkpointAmount, setCheckpointAmount] = React.useState(0)
+    const [checkpointNumber, setCheckpointNumber] = React.useState(0)
     const [currentUser, setCurrentUser] = React.useState({})
     const [games, setGames] = React.useState([])
     const navigate = useNavigate()
+    const pathname = window.location.pathname
+    const hash = window.location.hash
 
     React.useEffect(() => {
         if (currentUser.token) {
@@ -32,6 +38,12 @@ function App() {
                 setGames(gameRes)
                 setIsLoggedIn(true)
             })
+        }
+    })
+
+    React.useEffect(() => {
+        if (pathname === "/map") {
+            mainApi.getProgress(hash.split('#')[1], currentUser.token)
         }
     })
 
@@ -54,11 +66,17 @@ function App() {
         setIsCheckpointOpened(true)
     }
 
+    function handleAnswerClick(id) {
+        setCheckpointNumber(id)
+        setIsAnswerOpened(true)
+    }
+
     function closeAllPopups() {
         setIsLoginOpened(false)
         setIsRegisterOpened(false)
         setIsRecoveringOpened(false)
         setIsCheckpointOpened(false)
+        setIsAnswerOpened(false)
     }
 
     function handleRegister(formValue) {
@@ -82,6 +100,7 @@ function App() {
                 })
                 setIsLoggedIn(true)
                 navigate("/games", {replace: true})
+                closeAllPopups()
             }
         })
         .catch(err => console.log(err))
@@ -104,6 +123,18 @@ function App() {
         })
     }
 
+    function handleAnswerSubmit(data) {
+        mainApi.createProgress(data)
+        // делаем апи запрос на задание, получаем ответ, сравниваем с формой, 
+        // если верно, делаем запрос на прогресс и переводим на следующее
+        // если нет - обновляем форму и пишем, что ответ неверный
+    }
+
+    function showLastCheckpoint(id) {
+        // делаем запрос на последнее задание, возвращаем его
+
+    }
+
     return(
         <div className="app">
             <Routes>
@@ -113,6 +144,7 @@ function App() {
                 <Route path="/create-game" element={<CreateGame isLoggedIn={isLoggedIn} onClose={closeAllPopups} onSubmit={handleCreateGame} 
                 onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onSignOutClick={handleSignOutClick} isOpened={isCheckpointOpened} onCheckpointClick={handleCheckpointClick} />} />
                 <Route path="/profile" element={<Profile currentUser={currentUser} />} />
+                <Route path="/map" element={<GameMap isOpened={isAnswerOpened} onClose={closeAllPopups} onClick={handleAnswerClick} checkpointNumber={checkpointNumber} />} />
             </Routes>    
             <Login isOpened={isLoginOpened} onRegisterClick={handleRegisterClick} onRecoveringClick={handleRecoveringClick} onClose={closeAllPopups} onSubmit={handleLogin} />
             <Register isOpened={isRegisterOpened} onLoginClick={handleLoginClick} onClose={closeAllPopups} onSubmit={handleRegister} />

@@ -1,0 +1,58 @@
+.map {
+    width: 100%;
+    background-image: url('../../images/backgroundCheckpoint.svg');
+    background-color: #1C1032;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map__checkpoints {
+    margin-top: 188px;
+    margin-bottom: 84px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 122px);
+    gap: 115px 145px;
+    justify-content: center;
+}
+
+.map__checkpoint {
+    height: 122px;
+    border-radius: 100%;
+    color: #fff;
+    font-size: 73px;
+    text-align: center;
+    font-weight: 700;
+    padding: 36px 0;
+    box-sizing: border-box;
+    line-height: 51px;
+}
+
+.map__checkpoint_blue {
+    background-image: url('../../images/planetBlue.svg');
+}
+
+.map__checkpoint_green {
+    background-image: url('../../images/planetGreen.svg');
+}
+
+.map__checkpoint_yellow {
+    background-image: url('../../images/planetYellow.svg');
+}
+
+.map__button {    
+    color: #1C1032;
+    background-color: #fff;
+    min-width: 267px;
+    height: 68px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0 0 76px;
+    text-decoration: none;
+    padding: 13px 0;
+    box-sizing: border-box;
+}

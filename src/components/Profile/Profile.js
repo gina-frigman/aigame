@@ -18,7 +18,7 @@ function Profile(props) {
                     <img src={props.avatar} className='account__avatar' alt='аватар' />
                     <div className='account__container'>
                         <p className='account__text'>{props.currentUser.firstname}</p>
-                        <p className='account__text'>{props.currentUser.secondname}</p>
+                        <p className='account__text'>{props.currentUser.lastname}</p>
                     </div>
                 </div>
                 <div className='account__statistic'>

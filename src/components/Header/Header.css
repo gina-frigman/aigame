@@ -15,6 +15,12 @@
     height: 51px;
 }
 
+.header__image {
+    height: 22px;
+    align-self: center;
+    margin-left: 10%;
+}
+
 .header__navbar {
     display: flex;
     justify-content: center;
@@ -47,6 +53,23 @@
     cursor: pointer;
     margin-right: 15px;
     font-weight: 900;
+    line-height: 20px;
+}
+
+.header__button_game {
+    background-color: #9FC7F8;
+    color: #1C1032;
+    padding: 15px 51px;
+}
+
+.header__close {
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    height: 41px;
+    width: 41px;
+    background-image: url('../../images/close.svg');
+    background-size: contain;
+
 }
 
 .header__profile {
