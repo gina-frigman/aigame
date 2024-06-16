@@ -7,56 +7,54 @@ class AuthApi {
     _checkResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`err ${res.status}`)
+        } else {
+            return res.json()
         }
     }
 
     login(data) {
         return fetch(`${this.baseUrl}/auth/token/login/`, {
-            headers: {
-                method: "POST",
-                headers: this.headers,
-                body: JSON.stringify({
-                    'username': data.username,
-                    'password': data.password
-                })
-            }
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify({
+                'username': data.username,
+                'password': data.password
+            })
         })
         .then(this._checkResponseData)
         .then(data => {
-            if (data.token) {
+            if (data.auth_token) {
+                localStorage.setItem('jwt', data.auth_token)
                 return data;
             }
         })
     }
 
     register(data) {
-        console.log(data)
         return fetch(`${this.baseUrl}/api/auth/users/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: this.headers,
-                body: JSON.stringify({
-                    'username': data.login,
-                    'email': data.email,
-                    'password': data.password
-                })
-            }
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                'username': data.username,
+                'email': data.email,
+                'password': data.password
+            })
         })
         .then(this._checkResponseData)
     }
 
     signOut(data, token) {
         return fetch(`${this.baseUrl}/auth/token/logout/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: {
-                    "Authorization": `Token ${token}`,
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    token: data.token
-                })
-            }
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                token: data.token
+            })
         })
         .then(this._checkResponseData)
     }
@@ -65,6 +63,6 @@ class AuthApi {
 export const authApi = new AuthApi({
     baseUrl: 'http://mistikqw.beget.tech',
     headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
     }
 })

@@ -1,5 +1,6 @@
 .map {
     width: 100%;
+    min-height: calc(100vh - 90px);
     background-image: url('../../images/backgroundCheckpoint.svg');
     background-color: #1C1032;
     background-size: cover;
@@ -28,6 +29,7 @@
     padding: 36px 0;
     box-sizing: border-box;
     line-height: 51px;
+    cursor: pointer;
 }
 
 .map__checkpoint_blue {
@@ -55,4 +57,5 @@
     text-decoration: none;
     padding: 13px 0;
     box-sizing: border-box;
+    cursor: pointer;
 }

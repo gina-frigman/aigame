@@ -47,8 +47,6 @@ function CreateGame(props) {
             topic: '',
             link: '',
         })
-        console.log(checkpoints)
-        console.log(checkpointValue)
     }
 
     function handleClassClick() {
@@ -75,7 +73,7 @@ function CreateGame(props) {
 
     return(
         <>
-            <Header isLoggedIIn={props.isLoggedIIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
+            <Header isLoggedIn={props.isLoggedIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
             <main className='create'>
                 <h1 className='create__header'>Создание игры</h1>
                 <form className='create__form'>
@@ -83,27 +81,27 @@ function CreateGame(props) {
                     <button className='create__input' onClick={handleClassClick}>Выберите класс, на который рассчитана игра</button>
                     <div className={`create__container ${isClassOpened ? 'create__container_opened' : ''}`}>
                         <input className='create__input create__input_class' id='1 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="1 класс">1 класс</label>
+                        <label className='create__label' htmlFor="1 класс">1 класс</label>
                         <input className='create__input create__input_class' id='2 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="2 класс">2 класс</label>
+                        <label className='create__label' htmlFor="2 класс">2 класс</label>
                         <input className='create__input create__input_class' id='3 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="3 класс">3 класс</label>
+                        <label className='create__label' htmlFor="3 класс">3 класс</label>
                         <input className='create__input create__input_class' id='4 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="4 класс">4 класс</label>
+                        <label className='create__label' htmlFor="4 класс">4 класс</label>
                         <input className='create__input create__input_class' id='5 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="5 класс">5 класс</label>
+                        <label className='create__label' htmlFor="5 класс">5 класс</label>
                         <input className='create__input create__input_class' id='6 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="6 класс">6 класс</label>
+                        <label className='create__label' htmlFor="6 класс">6 класс</label>
                         <input className='create__input create__input_class' id='7 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="7 класс">7 класс</label>
+                        <label className='create__label' htmlFor="7 класс">7 класс</label>
                         <input className='create__input create__input_class' id='8 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="8 класс">8 класс</label>
+                        <label className='create__label' htmlFor="8 класс">8 класс</label>
                         <input className='create__input create__input_class' id='9 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="9 класс">9 класс</label>
+                        <label className='create__label' htmlFor="9 класс">9 класс</label>
                         <input className='create__input create__input_class' id='10 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="10 класс">10 класс</label>
+                        <label className='create__label' htmlFor="10 класс">10 класс</label>
                         <input className='create__input create__input_class' id='11 класс' type='radio' name='class' value={formValue.class} onChange={handleChange} />
-                        <label className='create__label' for="11 класс">11 класс</label>
+                        <label className='create__label' htmlFor="11 класс">11 класс</label>
                     </div>
                     <div className='create__flexbox'>
                         <input className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={formValue.status} onChange={handleChange} />

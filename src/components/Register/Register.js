@@ -6,7 +6,7 @@ function Register(props) {
     const [formValue, setFormValue] = React.useState({
         firstname: '',
         secondname: '',
-        login: '',
+        username: '',
         email: '',
         password: '',
         repeatpassword: '',

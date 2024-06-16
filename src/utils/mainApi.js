@@ -6,6 +6,8 @@ class MainApi {
     _checkResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`err ${res.status}`)
+        } else {
+            return res.json()
         }
     }
     
@@ -19,10 +21,9 @@ class MainApi {
     }
 
     getGames(token) {
-        return fetch(`${this.baseUrl}/api/game`, {
+        return fetch(`${this.baseUrl}/api/game/`, {
             headers: {
-                "Authorization": `Token ${token}`,
-                "content-type": "application/json"
+                "Authorization": `Token ${token}`
             }
         })
         .then(this._checkResponseData)
@@ -30,41 +31,38 @@ class MainApi {
 
     createGame(data, token) {
         return fetch(`${this.baseUrl}/api/create-game/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: {
-                    "Authorization": `Token ${token}`,
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify({
-                    "name": data.name,
-                    "class": data.class,
-                    "count-checkpoint": data.countCheckpoint,
-                    "status": data.status,
-                    "background": data.background,
-                    "checkpoint": data.checkpoint,
-                    "token": token
-                })
-            }
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "name": data.name,
+                "class": data.class,
+                "count-checkpoint": data.countCheckpoint,
+                "status": data.status,
+                "background": data.background,
+                "checkpoint": data.checkpoint,
+                "token": token
+            })
+            
         })
         .then(this._checkResponseData)
     }
 
     saveProgress(data, token) {
         return fetch(`${this.baseUrl}/api/create-progress/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: {
-                    "Authorization": `Token ${token}`,
-                    "content-type": "application/json"
-                },
-                body: {
-                    "id_game": data.game.id,
-                    "id_task": data.task.id,
-                    "chckpoint": data.checkpoint,
-                    "task": data.task
-                }
-            }
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: {
+                "id_game": data.game.id,
+                "id_task": data.task.id,
+                "chckpoint": data.checkpoint,
+                "task": data.task
+            }        
         })
         .then(this._checkResponseData)
     }

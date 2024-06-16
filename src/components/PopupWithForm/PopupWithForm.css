@@ -134,6 +134,7 @@
 .popup__task-text {
     width: 100%;
     overflow: scroll;
+    scrollbar-width: none;
     height: 239px;
     color:#1C1032; 
     font-size: 28px; 

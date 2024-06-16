@@ -26,7 +26,6 @@ function PopupWithForm(props) {
         props.onSubmit(evt)        
     }
 
-
     return(
         <div className={`popup ${props.isOpened ? 'popup_opened' : ''}`}>
             <div className={`popup__container ${props.name === 'register' ? 'popup__container_register' : ''} `}>
@@ -38,7 +37,7 @@ function PopupWithForm(props) {
                 {props.name === "answer" ? 
                     <div className='popup__flex-box'>
                         <h1 className='popup__header'>Точка {props.checkpointNumber}</h1>
-                        <p className='popup__text-task'>задание {props.taskNumber} из {props.taskCount}</p>
+                        <p className='popup__text-task'>задание {props.taskNumber} из {props.taskAmount}</p>
                     </div>
                 :
                 <h1 className='popup__header'>{props.name === 'login' ? 'Вход' : props.name === 'register' ? 'Регистрация' : 
@@ -61,8 +60,8 @@ function PopupWithForm(props) {
                             <div className='popup__field'>
                                 <input className='popup__input' type='text' name='firstname'placeholder='Имя' 
                                 value={props.formValue.firstname} onChange={handleChange} required />
-                                <input className='popup__input' type='text' name='login'placeholder='Логин' 
-                                value={props.formValue.login} onChange={handleChange} required />
+                                <input className='popup__input' type='text' name='username'placeholder='Логин' 
+                                value={props.formValue.username} onChange={handleChange} required />
                                 <input className='popup__input' type='password' name='password' placeholder='Придумайте пароль'
                                 value={props.formValue.password} onChange={handleChange} required />
                             </div>

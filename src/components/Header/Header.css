@@ -54,6 +54,7 @@
     margin-right: 15px;
     font-weight: 900;
     line-height: 20px;
+    cursor: pointer;
 }
 
 .header__button_game {
@@ -69,7 +70,7 @@
     width: 41px;
     background-image: url('../../images/close.svg');
     background-size: contain;
-
+    cursor: pointer;
 }
 
 .header__profile {
