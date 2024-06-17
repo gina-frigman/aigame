@@ -10,23 +10,48 @@ import star_round from "../../images/star_round.svg"
 import star from "../../images/star.svg"
 import nebula from "../../images/nebula.svg"
 import comet from "../../images/comet.svg"
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function Main(props) {
+
+    let [startLeft, setStartLeft] = useState(0);
+    let [endLeft, setEndLeft] = useState(0);
+
+    function radiansToDegrees(rad) {
+        return rad / (Math.PI/180);
+      }
+
+    function ani(e) {
+        setStartLeft(Math.floor(Math.random() * 3000));
+        setEndLeft(Math.floor(Math.random() * -1000));
+        e.target.style.rotate = radiansToDegrees(Math)
+        
+        document.documentElement.style
+        .setProperty('--start-left', `${startLeft}px`);
+        document.documentElement.style
+        .setProperty('--end-left', `${endLeft}px`);
+    }
+
     return (
         <>
+           
+            
+            <div className="pos-abs">
+               <Header isLoggedIn={props.isLoggedIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
+            </div>
+            <main className='main'>
+
             <div className='rocket'>
                 <img src={rocket} width="250px" alt=""/>
             </div>
             <div className='moon'>
                 <img src={luna} width="400px" alt=""/>
             </div>
-            <div className="pos-abs">
-               <Header isLoggedIn={props.isLoggedIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
-            </div>
-            <main className='main'>
             
             <div className='main__bg'>
-                    <div className='comet comet_top-center'>
+                
+                    <div onAnimationIteration={ e => ani(e)} className='comet comet_top-center'>
                         <img src={comet} alt=""/>
                     </div>
                     <div className='comet comet_top-right'>
@@ -139,8 +164,9 @@ function Main(props) {
 
                 <img className='main__logo' width={"50%"} src={mainLogo} alt='ии игра' />
                 <p className='main__text'>Инновационная AI игра</p>
-            </main>
-            <div className='sun'>
+                <Link  to='/create-game'> СОЗДАТЬ ИГРУ </Link>
+
+                <div className='sun'>
                 <img src={sun} width="400px" alt=""/> 
 
                 <div className='starRoundGroup-sunBottom group'>
@@ -173,6 +199,8 @@ function Main(props) {
             <div className='jupiter'>
                 <img src={jupiter} width="500px" alt=""/>
             </div>
+            </main>
+            
             <Advantages />
         </>
     )

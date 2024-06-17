@@ -4,3 +4,9 @@
          url(./segoe-ui-black-2.woff2) format("woff2");
     font-weight: 900;
 }
+
+@font-face {
+    font-family: "Nosifier";
+    src: url(./NosiferCaps-Regular.ttf) format("ttf");
+    font-weight: 900;
+}

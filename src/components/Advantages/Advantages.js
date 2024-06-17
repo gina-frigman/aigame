@@ -12,7 +12,7 @@ import comet from "../../images/comet.svg"
 function Advantages() {
     return(
         <section className='advantages'>
-            <div className='main__bg'>
+            <div className='main__bg-adv'>
                     <div className='comet comet_top-center'>
                         <img src={comet} alt=""/>
                     </div>
@@ -119,61 +119,67 @@ function Advantages() {
                         <img src={star} alt='' />
                     </div>
                 </div>
-                <div className='nebula'>
+                <div className='nebula-adv'>
                   <img src={nebula} width="733px" alt='' />
                 </div>
 
             <h1 className='advantages__header'>Преимущества AIGame</h1>
             <ul className='advantages__list'>
-                <li className='advantages__paragraph'>Игровой формат обучения помогает пробудить интерес ребенка
+                <li className='advantages__paragraph'>
 
-                <div className='moon'>
+                <div className='descr descr-moon'>
+                   Игровой формат обучения помогает пробудить интерес ребенка
+                </div>
+
+                <div className='moon-adv'>
+                    <img className='flag flag-moon' src={flag} width="29px" alt=""/>
                     <img src={luna} width="400px" alt=""/>
                 </div>
                 </li>
                 <li className='advantages__paragraph'>
-                    <div className='descr'>
+                    <div className='descr descr-jupiter'>
                         AIGame использует новые технологии в сфере образования
                     </div>
-                    <div className='jupiter'>
+                    <div className='jupiter-adv'>
+                        <img className='flag flag-jupiter' src={flag} width="29px" alt=""/>
                         <img src={jupiter} width="500px" alt=""/>
                     </div>
                 </li>
                 <li className='advantages__paragraph'> 
-                    <div className='descr'>
+                    <div className='descr descr-sun'>
                         В игровой форме легче получать новую информацию
                     </div>
-                    <div className='sun'>
-                    <img src={sun} width="400px" alt=""/> 
+                    <div className='sun-adv'>
+                        <img className='flag flag-sun' src={flag} width="29px" alt=""/>
+                        <img src={sun} width="400px" alt=""/> 
 
-                    <div className='starRoundGroup-sunBottom group'>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
+                        <div className='starRoundGroup-sunBottom group'>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
                         </div>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
+
+                        <div className='starRoundGroup-sunLeft group'>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                        </div>
+
+                        <div className='starRoundGroup-sunTop group'>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
                         </div>
                     </div>
-
-                    <div className='starRoundGroup-sunLeft group'>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                    </div>
-
-                    <div className='starRoundGroup-sunTop group'>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                    </div>
-            </div>
-                    
                 </li>
             </ul>
         </section>

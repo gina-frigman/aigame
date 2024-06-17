@@ -1,3 +1,15 @@
+.wrapper {
+	max-width: 1540px;
+	height: 100vh;
+	position: relative;
+
+	background-image: url("../../images/Fon.svg");
+	background-size: 1500px;
+	background-position: center;
+	z-index: -100;
+	background-size: 1500px;
+	margin: 0 auto;
+}
 .main {
 	max-width: 1500px;
 	height: 100vh;
@@ -15,15 +27,16 @@
 	height: 100%;
 	background-image: url("../../images/Fon.svg");
 	background-size: 1500px;
+	background-repeat: no-repeat;
 	background-position: center;
-	background-repeat: repeat-y;
+	background-repeat: no-repeat;
 	z-index: -100;
 }
 
 .rocket {
 	position: absolute;
 	top: 14vh;
-	left: 4.2vw;
+	left: 40px;
 	z-index: -1;
 }
 
@@ -37,7 +50,7 @@
 .sun {
 	position: absolute;
 	top: 3.7vh;
-	right: -1.7vw;
+	right: -20px;
 	z-index: -1;
 }
 
@@ -68,6 +81,7 @@
 	position: absolute;
 	left: 107px;
    top: -136px;
+	height: 100px;;
    z-index: -2;
    rotate: 358deg
 }
@@ -218,12 +232,16 @@
 
 .comet {
 	position: absolute;
+	
 }
 
 .comet_top-center {
-	left: 407px;
-	top: -20px;
+	left: var(--start-left);
+	top: var(--start-top);
 	rotate: 20deg;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-name: fallen;
 }
 
 .comet_top-right {
@@ -236,4 +254,55 @@
 	right: -50px;
 	top: 280px;
 	rotate: -5deg;
+}
+
+.main__create-game {
+	width: 464px;
+	height: 86px;
+	border-radius: 10px;
+	border: 0;
+
+	background-color: #A2C8F6;
+
+	font-weight: 600;
+	font-size: 33px;
+	color: #1C1032;
+	
+}
+
+
+@keyframes fallen {
+	 to {
+		top: var(--end-top);
+		left: var(--end-left);
+	 }
+}
+
+@media (width > 1206px) and (width < 1439px) {
+	.main__bg {
+		width: 1524px;
+	}
+
+	.main {
+		width: 1524px;
+		background-size: 1524px;
+	}
+
+}
+
+@media (width < 1205px) {
+	.main__bg {
+		width: 1524px;
+	}
+
+	.main {
+		width: 1524px;
+		background-size: 1524px;
+	}
+
+	.moon {
+		left: 10px;
+	}
+
+	
 }

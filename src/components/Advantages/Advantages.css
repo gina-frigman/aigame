@@ -1,0 +1,105 @@
+.advantages {
+	max-width: 1500px;
+	height: 100vh;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+}
+
+.moon-adv {
+	position: absolute;
+	top: 45px;
+}
+
+.jupiter-adv {
+	position: absolute;
+	top: 70px;
+}
+
+.sun-adv {
+	position: absolute;
+	top: 45px;
+}
+
+.flag {
+	position: absolute;
+	left: 50%;
+	top: 20px
+}
+
+.advantages__list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	position: relative;
+	width: 100%;
+}
+
+.main__bg-adv {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("../../images/Fon2.svg");
+	background-size: 1490px;
+	z-index: -100;
+}
+
+.advantages__header {
+	position: relative;
+	height: 100px;
+	font-size:  66px;
+	font-family: "Segoe", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}	
+
+.nebula-adv {
+	position: absolute;
+	left: 107px;
+   top: 0px;
+   z-index: -102;
+   rotate: 358deg
+}
+
+.descr {
+	width: 350px;
+	text-align: center;
+}
+
+ul, li {
+	text-decoration: none;
+}
+
+.advantages__paragraph {
+	display: flex;
+	justify-content: center;
+}
+
+.flag-sun {
+	left: 245px;
+}
+
+.flag-jupiter {
+	left: 220px;
+	top: 30px;
+}
+
+.flag-moon {
+	top: 15px;
+}
+
+.descr-jupiter {
+	position: relative;
+	top: 40px;
+}
+
+.descr-sun {
+	position: relative;
+	left: 50px;
+}
+
+.descr-moon {
+	position: relative;
+
+}
