@@ -3,6 +3,7 @@
     height: 90px;
     display: flex;
     justify-content: space-between;
+    position: fixed;
 }
 
 .header__link {

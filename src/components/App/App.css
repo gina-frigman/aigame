@@ -1,7 +1,22 @@
-.app {
-    font-family: "Segoe", Arial, Helvetica, sans-serif;
-    background-color: #403458;
+body {
+    background-color: #1C1032;
     color: #fff;
     min-height: 100vh;
     font-weight: 900;
+    overflow-x: hidden;
+}
+
+* {
+    font-family: "Segoe", Arial, Helvetica, sans-serif;
+}
+
+.app {
+    width: 100vw;
+}
+
+:root {
+    --start-left: 432px;
+    --start-top: 10px;
+    --end-left: -500px;
+    --end-top: 1000px;
 }

@@ -6,6 +6,12 @@
 }
 
 @font-face {
+    font-family: "Nosifier";
+    src: url(./NosiferCaps-Regular.ttf) format("ttf");
+    font-weight: 900;
+}
+
+@font-face {
     font-family: "Segoe";
     src: url(./Segoe-UI-Bold.woff) format("woff"),
          url(./Segoe-UI-Bold.woff2) format("woff2");
