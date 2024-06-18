@@ -3,6 +3,7 @@ import Logo from './../../images/logo.svg'
 import gameLogo from './../../images/gameLogo.svg'
 import aigame from "../../images/name.svg"
 import { Link, useNavigate } from "react-router-dom";
+import avatar from '../../images/avatar.svg'
 
 function Header(props) {
     const navigate = useNavigate()
@@ -47,7 +48,7 @@ function Header(props) {
         : props.isLoggedIn ? 
             <div className="header__profile">
                 <button className="header__button" onClick={handleSignOutClick}>Выход</button>
-                <Link className="header__link" to='/profile'><img className="header__avatar" src={props.avatar} alt="аватар"/></Link>
+                <Link className="header__link" to='/profile'><img className="header__avatar" src={props.avatar ? props.avatar : avatar} alt="аватар"/></Link>
             </div> :
             <div className="header__auth">
                 <button className="header__button" onClick={handleLoginClick}>Вход</button>

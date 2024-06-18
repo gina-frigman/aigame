@@ -50,28 +50,48 @@ class MainApi {
         .then(this._checkResponseData)
     }
 
-    saveProgress(data, token) {
+    getTask(userClass, topic, token) {
+        return fetch(`${this.baseUrl}/api/crete-task/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "class_user": userClass,
+                "topic": topic
+            }) 
+        })
+        .then(this._checkResponseData)
+    }
+
+    saveProgress(gameId, taskId, checkpointNumber, taskNumber, token) {
         return fetch(`${this.baseUrl}/api/create-progress/`, {
             method: "POST",
             headers: {
                 "Authorization": `Token ${token}`,
                 "content-type": "application/json"
             },
-            body: {
-                "id_game": data.game.id,
-                "id_task": data.task.id,
-                "chckpoint": data.checkpoint,
-                "task": data.task
-            }        
+            body: JSON.stringify({
+                "id_game": gameId,
+                "id_task": taskId,
+                "chckpoint": checkpointNumber,
+                "task": taskNumber
+            })
         })
         .then(this._checkResponseData)
     }
 
     getProgress(id, token) {
-        return fetch(`${this.baseUrl}/api/progress/${id}/`, {
+        return fetch(`${this.baseUrl}/api/progress/`, {
+            method: "POST",
             headers: {
-                "Authorization": `Token ${token}`
-            }
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "id_game": id
+            })
         })
         .then(this._checkResponseData)
     }

@@ -45,18 +45,34 @@ class AuthApi {
         .then(this._checkResponseData)
     }
 
-    signOut(data, token) {
-        return fetch(`${this.baseUrl}/auth/token/logout/`, {
+    setFIO(data, token) {
+        const name = data.firstname + data.lastname
+        console.log(name)
+        return fetch(`${this.baseUrl}/api/create-fullname/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "FIO_user": name
+            })
+        })
+    }
+
+    signOut(token) {
+        return fetch(`${this.baseUrl}/auth/token/logout`, {
             method: "POST",
             headers: {
                 "Authorization": `Token ${token}`,
                 "content-type": "application/json"
-            },
-            body: JSON.stringify({
-                token: data.token
-            })
+            }
         })
-        .then(this._checkResponseData)
+        .then(res => {
+            if (res) {
+                return res
+            }
+        })
     }
 }
 

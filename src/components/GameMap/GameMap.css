@@ -44,6 +44,16 @@
     background-image: url('../../images/planetYellow.svg');
 }
 
+.map__checkpoint_inactive {
+    cursor: default;
+    opacity: .2;
+    height: 100px;
+    width: 100px;
+    align-self: center;
+    font-size: 65px;
+    line-height: 45px;
+}
+
 .map__button {    
     color: #1C1032;
     background-color: #fff;
