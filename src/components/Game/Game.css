@@ -1,0 +1,56 @@
+.game {
+    max-width: 568px;
+    min-height: 601px;
+    background-image: url('../../images/background.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    box-shadow: 11px 11px #9FC7F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game__avatar {
+    margin: 92px 0 37px;
+    width: 360px;
+    height: 270px;
+    object-fit: cover;
+    width: 360px;
+    height: 270px;
+    border-radius: 10px;
+    border: 1px #fff solid;
+}
+
+.game__avatar_no {
+    font-size: 28px;
+    color: rgba(28, 16, 50, .6);
+    text-align: center;
+    padding: 125px 0;
+    line-height: 20px;
+    box-sizing: border-box;
+    background-color: #9FC7F8;
+}
+
+.game__name {
+    color: #fff;
+    font-size: 33px;
+    font-weight: 900;
+    margin: 0 0 37px;
+}
+
+.game__button {
+    color: #1C1032;
+    background-color: #fff;
+    min-width: 267px;
+    height: 68px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0;
+    text-decoration: none;
+    padding: 13px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+}

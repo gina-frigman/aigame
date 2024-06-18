@@ -1,64 +1,84 @@
-function AuthApi(props) {
-    const baseUrl = props.baseUrl
-    const headers = props.headers
+class AuthApi {
+    constructor(props) {
+        this.baseUrl = props.baseUrl   
+        this.headers = props.headers
+    }
 
-    function _checkResponseData(res) {
+    _checkResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`err ${res.status}`)
+        } else {
+            return res.json()
         }
     }
 
-    function login(data) {
-        return fetch(`${baseUrl}/auth/token/login`, {
-            headers: {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    'username': data.username,
-                    'password': data.password
-                })
-            }
+    login(data) {
+        return fetch(`${this.baseUrl}/auth/token/login/`, {
+            method: "POST",
+            headers: this.headers,
+            body: JSON.stringify({
+                'username': data.username,
+                'password': data.password
+            })
         })
-        .then(_checkResponseData)
+        .then(this._checkResponseData)
         .then(data => {
-            if (data.token) {
+            if (data.auth_token) {
+                localStorage.setItem('jwt', data.auth_token)
                 return data;
             }
         })
     }
 
-    function register(data) {
-        return fetch(`${baseUrl}/api/auth/users`, {
+    register(data) {
+        return fetch(`${this.baseUrl}/api/auth/users/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    'username': data.username,
-                    'email': data.email,
-                    'password': data.password
-                })
-            }
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                'username': data.username,
+                'email': data.email,
+                'password': data.password
+            })
         })
-        .then(_checkResponseData)
+        .then(this._checkResponseData)
     }
 
-    function signOut(data) {
-        return fetch(`${baseUrl}/auth/token/logout`, {
+    setFIO(data, token) {
+        const name = data.firstname + data.lastname
+        console.log(name)
+        return fetch(`${this.baseUrl}/api/create-fullname/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    token: data.token
-                })
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "FIO_user": name
+            })
+        })
+    }
+
+    signOut(token) {
+        return fetch(`${this.baseUrl}/auth/token/logout`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
             }
         })
-        .then(_checkResponseData)
+        .then(res => {
+            if (res) {
+                return res
+            }
+        })
     }
 }
 
 export const authApi = new AuthApi({
     baseUrl: 'http://mistikqw.beget.tech',
     headers: {
-        "content-type": "application/json"
+        "Content-Type": "application/json",
     }
 })

@@ -5,7 +5,7 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 function Register(props) {
     const [formValue, setFormValue] = React.useState({
         firstname: '',
-        secondname: '',
+        lastname: '',
         username: '',
         email: '',
         password: '',
@@ -22,7 +22,11 @@ function Register(props) {
 
     function handleSubmit(evt) {
         evt.preventDefault()
-        props.onSubmit(formValue)
+        if (formValue.password === formValue.repeatpassword) {
+            props.onSubmit(formValue)
+        } else {
+            console.log('wrong repeat password')
+        }
     }
 
     return(

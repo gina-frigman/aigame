@@ -1,31 +1,33 @@
-import { Link } from 'react-router-dom';
 import './Profile.css'
-import accountIcon from './../../images/profileIcon.svg'
-import tasksIcon from './../../images/tasksIcon.svg'
-import settingsIcon from './../../images/settingsIcon.svg'
+import avatar from '../../images/avatar.svg'
+import Header from '../Header/Header';
+import { CurrentUserContext } from '../../Contexts/CurrentUserContext';
+import React from 'react';
 
 function Profile(props) {
+    const currentUser = React.useContext(CurrentUserContext)
+    console.log(currentUser)
     return(
-        <section className='account'>
-            <h1 className='account__header'>Личный кабинет</h1>
-            <div className='account__flexbox'>
-                <nav className='account__navbar'>
-                    <img src={accountIcon} className='account__icon' alt='иконка профиля' />
-                    <Link to='/tasks' className='account__link'><img src={tasksIcon} className='account__icon' alt='иконка заданий' /></Link>
-                    <Link to='/settings' className='account__link'><img src={settingsIcon} className='account__icon' alt='иконка настроек' /></Link>
-                </nav>
+        <>       
+            <Header isLoggedIn={props.isLoggedIn} onSignOutClick={props.onSignOutClick} />
+            <section className='account'>
                 <div className='account__data'>
-                    <img src={props.avatar} className='account__avatar' alt='аватар' />
-                    <div className='account__container'>
-                        <p className='account__text'>{props.currentUser.firstname}</p>
-                        <p className='account__text'>{props.currentUser.secondname}</p>
+                <h1 className='account__header'>Личный кабинет</h1>
+                    <div className='account__flexbox'>
+                        <img src={props.avatar ? props.avatar : avatar} className='account__avatar' alt='аватар' />
+                        <div className='account__container'>
+                            <p className='account__text'>{currentUser[0].firstname}</p>
+                            <p className='account__text'>{currentUser[0].lastname}</p>
+                        </div>
                     </div>
-                </div>
-                <div className='account__statistic'>
-                    <h2 className='account__header'>Статистика</h2>
-                </div>
-            </div>
-        </section>
+                        <p className='account__text account__text_class'>{currentUser[0].userClass}</p>
+                        <div className='account__flex-box'>
+                            <p className='account__text accont__text_short'>{currentUser[0].email}</p>
+                            <p className='account__text accont__text_short'>{currentUser[0].username}</p>
+                        </div>
+                    </div>
+            </section>
+        </>
     )
 }
 

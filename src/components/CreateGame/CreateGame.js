@@ -59,8 +59,6 @@ function CreateGame(props) {
             topic: '',
             link: '',
         })
-        console.log(checkpoints)
-        console.log(checkpointValue)
     }
 
     function handleClassClick() {
@@ -92,122 +90,122 @@ function CreateGame(props) {
             </div>
             
             <main className='create main'>
-            <div className='rocket'>
-                <img src={rocket} width="250px" alt=""/>
-            </div>
-            <div className='moon'>
-                <img src={luna} width="350px" alt=""/>
-            </div>
-            <div className='main__bg'>
-                    <div className='comet comet_top-center'>
-                        <img src={comet} alt=""/>
-                    </div>
-                    <div className='comet comet_top-right'>
-                        <img src={comet} alt=""/>
-                    </div>
-                    <div className='comet comet_right'>
-                        <img src={comet} width="110px" alt=""/>
-                    </div>
-                    <div className='star_round star_round-free'>
-                        <img src={star_round} width='10px' alt='' />
-                    </div>
-                    <div className='starGroup-Rocket group'>
+                <div className='rocket'>
+                    <img src={rocket} width="250px" alt=""/>
+                </div>
+                <div className='moon'>
+                    <img src={luna} width="350px" alt=""/>
+                </div>
+                <div className='main__bg'>
+                        <div className='comet comet_top-center'>
+                            <img src={comet} alt=""/>
+                        </div>
+                        <div className='comet comet_top-right'>
+                            <img src={comet} alt=""/>
+                        </div>
+                        <div className='comet comet_right'>
+                            <img src={comet} width="110px" alt=""/>
+                        </div>
+                        <div className='star_round star_round-free'>
+                            <img src={star_round} width='10px' alt='' />
+                        </div>
+                        <div className='starGroup-Rocket group'>
 
-                       <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                        <div className='star'>
-                            <img src={star} width='20px' alt='' />
-                        </div>
-                        <div className='star'>
-                            <img src={star} width='45px' alt='' />
-                        </div>
-                        
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                    </div>
+                           <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} width='20px' alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} width='45px' alt='' />
+                            </div>
 
-                    <div  className='group starGroup-center '>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
                         </div>
-                        <div className='star'>
-                            <img src={star} alt='' />
-                        </div>
-                        <div className='star'>
-                            <img src={star} alt='' />
-                        </div>
-                        
-                    </div>
 
-                    <div className='starGroup-moon group'>
-                        <div className='star'>
-                            <img src={star} alt='' />
+                        <div  className='group starGroup-center '>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+
                         </div>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
+
+                        <div className='starGroup-moon group'>
+                            <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div className='startGroup-bottom group'>
-                    <div className='star w-1px'></div>
-                        <div className='star'>
-                            <img src={star} alt='' />
-                        </div>
-                                                <div className='star'>
-                            <img src={star} alt='' />
-                        </div>
-                    </div>
-                    <div className='startGroup-top group'>
+
+                        <div className='startGroup-bottom group'>
                         <div className='star w-1px'></div>
-                        <div className='star'>
+                            <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+                                                    <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+                        </div>
+                        <div className='startGroup-top group'>
+                            <div className='star w-1px'></div>
+                            <div className='star'>
+                                <img src={star} alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} width="23px" alt='' />
+                            </div>
+                        </div>
+
+                        <div className='starGroup-jupiter group'>
+                            <div className='star'>
+                                <img src={star} width='30px' alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} width='25px' alt='' />
+                            </div>
+                            <div className='star'>
+                                <img src={star} width='20px' alt='' />
+                          </div>
+                        </div>
+
+                        <div className='starRoundGroup-moon group'>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} width='15px' alt='' />
+                            </div>
+                        </div>
+                        <div className='starRoundGroup-jupiter group'>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                            <div className='star_round'>
+                                <img src={star_round} alt='' />
+                            </div>
+                        </div>
+
+                        <div className='star star_rocketBottom'>
                             <img src={star} alt='' />
                         </div>
                         <div className='star'>
-                            <img src={star} width="23px" alt='' />
+                            <img src={star} alt='' />
                         </div>
-                    </div>
-                    
-                    <div className='starGroup-jupiter group'>
-                        <div className='star'>
-                            <img src={star} width='30px' alt='' />
+                        <div className='nebula'>
+                            <img src={nebula} width="733px" alt='' />
                         </div>
-                        <div className='star'>
-                            <img src={star} width='25px' alt='' />
-                        </div>
-                        <div className='star'>
-                            <img src={star} width='20px' alt='' />
-                      </div>
-                    </div>
-                   
-                    <div className='starRoundGroup-moon group'>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                        <div className='star_round'>
-                            <img src={star_round} width='15px' alt='' />
-                        </div>
-                    </div>
-                    <div className='starRoundGroup-jupiter group'>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                        <div className='star_round'>
-                            <img src={star_round} alt='' />
-                        </div>
-                    </div>
-                   
-                    <div className='star star_rocketBottom'>
-                        <img src={star} alt='' />
-                    </div>
-                    <div className='star'>
-                        <img src={star} alt='' />
-                    </div>
-                    <div className='nebula'>
-                        <img src={nebula} width="733px" alt='' />
-                    </div>
-            </div>
+                </div>
 
                 <div className="bg-card">
                     <h1 className='create__header'>Создание игры</h1>
@@ -297,39 +295,39 @@ function CreateGame(props) {
                         <button className='create__input create__input_submit create_form-item' type='submit' name='createGame' id='createGame' onClick={handleSubmit}>Создать игру</button>
                     </form>
                 </div>
-            <div className='sun'>
-                <img src={sun} width="400px" alt=""/> 
+                <div className='sun'>
+                    <img src={sun} width="400px" alt=""/> 
 
-                <div className='starRoundGroup-sunBottom group'>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
+                    <div className='starRoundGroup-sunBottom group'>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
                     </div>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
+
+                    <div className='starRoundGroup-sunLeft group'>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
+                    </div>
+
+                    <div className='starRoundGroup-sunTop group'>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
+                        <div className='star_round'>
+                            <img src={star_round} alt='' />
+                        </div>
                     </div>
                 </div>
-
-                <div className='starRoundGroup-sunLeft group'>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
-                    </div>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
-                    </div>
+                <div className='jupiter'>
+                    <img src={jupiter} width="500px" alt=""/>
                 </div>
-
-                <div className='starRoundGroup-sunTop group'>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
-                    </div>
-                    <div className='star_round'>
-                        <img src={star_round} alt='' />
-                    </div>
-                </div>
-            </div>
-            <div className='jupiter'>
-                <img src={jupiter} width="500px" alt=""/>
-            </div>
             </main>
             
             <PopupWithForm name='create' formValue={formValue} checkpointValue={checkpointValue} onCheckpointChange={handleCheckpointChange} onCheckpointSubmit={handleCheckpointSubmit}
