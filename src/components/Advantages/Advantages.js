@@ -147,7 +147,7 @@ function Advantages() {
                 </li>
                 <li className='advantages__paragraph'> 
                     <div className='descr descr-sun'>
-                        В игровой форме легче получать новую информацию
+                         AIGame облегчит работу учителям в проверке домашних работ
                     </div>
                     <div className='sun-adv'>
                         <img className='flag flag-sun' src={flag} width="29px" alt=""/>
