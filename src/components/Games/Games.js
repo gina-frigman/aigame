@@ -13,6 +13,8 @@ import nebula from "../../images/nebula.svg"
 import comet from "../../images/comet.svg"
 
 function Games(props) {
+    
+
     return(
         <>
             <div className="pos-abs">
@@ -140,8 +142,8 @@ function Games(props) {
                 <div className="games__container">
                     <h1 className="games__header">Игры</h1>
                     <div className="games__cards">
-                        {props.games.map(game => (
-                            <Game name={game.title} avatar={game.img} key={game.id} id={game.id} />
+                        {props.games.map(games => (
+                            <Game name={games.title} avatar={games.img} key={games.id} id={games.id} />
                         ))}
                     </div>
                     <Link to="/create-game" className="games__button">Создать игру</Link>

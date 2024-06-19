@@ -8,7 +8,7 @@ function GameMap(props) {
     const [taskAmount, setTaskAmount] = React.useState(0)
     const [checkpointNumber, setCheckpointNumber] = React.useState(0)
     const [inActive, setInActive] = React.useState('')
-    const checkpointNumbers = [1,2,3,4]
+    const checkpointNumbers = []
     for (let i = 1; i < Number(props.checkpointAmount)+1; i++) {
         checkpointNumbers.push(i)
     }
@@ -67,10 +67,7 @@ function GameMap(props) {
                 <div className="map__checkpoints">
                     {checkpointNumbers.map(num => (
                         <button className={`map__checkpoint  ${props.progress[num-1] === 0 ? "map__checkpoint_inactive" : num === Number(checkpointNumber) ? inActive : ''} ${num % 3 === 0 ? 'map__checkpoint_green' : num % 2 === 0 ? 'map__checkpoint_yellow' : 'map__checkpoint_blue'} `} 
-                        onClick={handleClick} 
-                        taskCount={props.game.checkpoint[num-1].task_count} 
-                        id={props.game.checkpoint[num-1].id} 
-                        name={String(num)} num={num} key={num}>{num}</button>
+                        onClick={handleClick} taskCount={props.game.checkpoint[num-1].task_count} id={props.game.checkpoint[num-1].id} name={String(num)} num={num} key={num}>{num}</button>
                     ))}
                 </div>
                 <button className="map__button" type="submit">Завершить</button>

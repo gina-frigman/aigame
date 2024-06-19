@@ -39,8 +39,6 @@ function CreateGame(props) {
             [name]: value
         })
 
-        console.log(name, value)
-
     }
 
     function handleCheckpointChange(evt) {
