@@ -36,6 +36,10 @@
     align-items: center;
 }
 
+.header__text_unlogged {
+    opacity: .4;
+}
+
 .header__auth {
     display: flex;
     align-items: center;

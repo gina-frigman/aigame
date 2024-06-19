@@ -11,7 +11,9 @@ import { authApi } from "../../utils/authApi";
 import { mainApi } from "../../utils/mainApi";
 import Profile from "../Profile/Profile";
 import GameMap from "../GameMap/GameMap";
-import { CurrentUserContext } from "../../Contexts/CurrentUserContext";
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import End from "../End/End";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = React.useState(false)
@@ -20,6 +22,7 @@ function App() {
     const [isRecoveringOpened, setIsRecoveringOpened] = React.useState(false)
     const [isCheckpointOpened, setIsCheckpointOpened] = React.useState(false)
     const [isAnswerOpened, setIsAnswerOpened] = React.useState(false)
+    const [isEndOpened, setIsEndOpened] = React.useState(false)
     const [currentUser, setCurrentUser] = React.useState({})
     const [games, setGames] = React.useState([])
 
@@ -41,8 +44,14 @@ function App() {
                 mainApi.getGames(localStorage.jwt)
             ])
             .then(([userRes, gameRes]) => {
+                console.log(userRes)
                 setIsLoggedIn(true)
-                setCurrentUser(userRes)
+                setCurrentUser({
+                    firstname: userRes.name,
+                    lastname: userRes.surname,
+                    login: userRes.login,
+                    email: userRes.email
+                })
                 setGames(gameRes)
             })
             .catch(err => console.log(err))
@@ -100,6 +109,11 @@ function App() {
         setIsAnswerOpened(false)
     }
 
+    function handleUnloggedClick() {
+        navigate("/", {replace: true})
+        setIsLoginOpened(true)
+    }
+
     function handleRegister(formValue) {
         authApi.register(formValue)
         .then(res => {
@@ -124,6 +138,7 @@ function App() {
         })
         .catch(err => console.log(err))
     }
+
     function handleSignOutClick() {
         authApi.signOut(localStorage.jwt)
         .then(res => {
@@ -136,29 +151,34 @@ function App() {
     }
 
     function handleCreateGame(formValue) {
-        mainApi.createGame(formValue, currentUser.token)
+        mainApi.createGame(formValue, localStorage.jwt)
         .then(res => {
             setGames([res, ...games])
+            closeAllPopups()
+            navigate("/games")
         })
     }
 
     function handleAnswerSubmit(taskNumber) {
-        mainApi.saveProgress(game.id, game.checkpoint[checkpointNumber-1].id, Number(checkpointNumber), Number(taskNumber), localStorage.jwt)
-        console.log(game.id, game.checkpoint[checkpointNumber-1].id, checkpointNumber, taskNumber)
+        mainApi.saveProgress(String(game.id), String(game.checkpoint[checkpointNumber-1].id), checkpointNumber, String(taskNumber), localStorage.jwt)
+    }
+
+    function handleEndGame() {
+        setIsEndOpened(true)
     }
 
     return(
         <div className="app">
             <CurrentUserContext.Provider value={currentUser}>
                 <Routes>
-                    <Route path="/" element={<Main onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} 
+                    <Route path="/" element={<Main onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onUnloggedClick={handleUnloggedClick}
                     onSignOutClick={handleSignOutClick} isLoggedIn={isLoggedIn} />} />
-                    <Route path="/games" element={<Games isLoggedIn={isLoggedIn} onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} 
+                    <Route path="/games" element={<ProtectedRoute element={Games} onUnloggedClick={handleUnloggedClick} isLoggedIn={isLoggedIn} onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} 
                     onSignOutClick={handleSignOutClick} games={games} />} />
-                    <Route path="/create-game" element={<CreateGame isLoggedIn={isLoggedIn} onClose={closeAllPopups} onSubmit={handleCreateGame} 
+                    <Route path="/create-game" element={<ProtectedRoute element={CreateGame} onUnloggedClick={handleUnloggedClick} isLoggedIn={isLoggedIn} onClose={closeAllPopups} onSubmit={handleCreateGame} 
                     onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onSignOutClick={handleSignOutClick} isOpened={isCheckpointOpened} onCheckpointClick={handleCheckpointClick} />} />
-                    <Route path="/profile" element={<Profile currentUser={currentUser} onSignOutClick={handleSignOutClick} isLoggedIn={isLoggedIn} />} />
-                    <Route path="/map" element={<GameMap progress={progress} taskText={taskText} taskAnswer={taskAnswer} isOpened={isAnswerOpened} game={game} onSubmit={handleAnswerSubmit}
+                    <Route path="/profile" element={<ProtectedRoute element={Profile} onUnloggedClick={handleUnloggedClick} currentUser={currentUser} onSignOutClick={handleSignOutClick} isLoggedIn={isLoggedIn} />} />
+                    <Route path="/map" element={<ProtectedRoute element={GameMap} isEndOpened={isEndOpened} onEndGame={handleEndGame} isLoggedIn={isLoggedIn} onUnloggedClick={handleUnloggedClick} progress={progress} taskText={taskText} taskAnswer={taskAnswer} isOpened={isAnswerOpened} game={game} onSubmit={handleAnswerSubmit}
                     onClose={closeAllPopups} onClick={handleAnswerClick} checkpointAmount={checkpointAmount} onSignOutClick={handleSignOutClick} checkpointNumber={checkpointNumber} />} />
                 </Routes>    
                 <Login isOpened={isLoginOpened} onRegisterClick={handleRegisterClick} onRecoveringClick={handleRecoveringClick} onClose={closeAllPopups} onSubmit={handleLogin} />

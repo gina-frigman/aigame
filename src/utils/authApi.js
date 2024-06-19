@@ -46,7 +46,7 @@ class AuthApi {
     }
 
     setFIO(data, token) {
-        const name = data.firstname + data.lastname
+        const name = data.firstname + ' ' + data.lastname
         console.log(name)
         return fetch(`${this.baseUrl}/api/create-fullname/`, {
             method: "POST",
