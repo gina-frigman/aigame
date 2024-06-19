@@ -134,9 +134,7 @@ function Games(props) {
                     <div className='star'>
                         <img src={star} alt='' />
                     </div>
-                </div>
-
-                <div className='nebula'>
+                    <div className='nebula'>
                   <img src={nebula} width="733px" alt='' />
                 </div>
                 <div className="games__container">
@@ -150,6 +148,9 @@ function Games(props) {
                     </div>
                     <Link to="/create-game" className="games__button">Создать игру</Link>
                 </div>
+                </div>
+
+                
             </main>
         </>
     )
