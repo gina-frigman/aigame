@@ -1,15 +1,18 @@
 .games {
     width: 100vw;
-    max-height: 100vh;
+    min-height: 100vh;
     /* overflow: hidden; */
     position: relative;
-    z-index: 100;
+    z-index: 11;
+}
+
+.games__darker {
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
 }
 
 .games__container {
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, .6);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +21,7 @@
 .games__header {
     font-size: 62px;
     margin: 0 0 80px;
-    padding-top: 97px;
+    padding-top: 57px;
     text-align: center;
     color: #fff;
     font-weight: 900;

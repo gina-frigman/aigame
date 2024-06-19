@@ -11,10 +11,13 @@ import star_round from "../../images/star_round.svg"
 import star from "../../images/star.svg"
 import nebula from "../../images/nebula.svg"
 import comet from "../../images/comet.svg"
+import { CurrentUserContext } from "../../context/CurrentUserContext";
+import React from "react";
 
 function Games(props) {
+    const currentUser = React.useContext(CurrentUserContext)
     return(
-        <>
+        <div className="games__darker">
             <div className="pos-abs">
                 <Header isLoggedIn={props.isLoggedIn} onLoginClick={props.onLoginClick} onRegisterClick={props.onRegisterClick} onSignOutClick={props.onSignOutClick} />
             </div>
@@ -141,8 +144,12 @@ function Games(props) {
                     <h1 className="games__header">Игры</h1>
                     <div className="games__cards">
                         {props.games.map(game => (
-                            game.status === 'public' ?
+                            game.status === 'Публичная' ?
                             <Game name={game.title} avatar={game.img} key={game.id} id={game.id} />
+                            : game.status === 'public' ?
+                            <Game name={game.title} avatar={game.img} key={game.id} id={game.id} />
+                            : game.author.id === currentUser.id ?
+                            <Game name={game.title} avatar={game.img} key={game.id} id={game.id} /> 
                             : <></>
                         ))}
                     </div>
@@ -152,7 +159,7 @@ function Games(props) {
 
                 
             </main>
-        </>
+        </div>
     )
 }
 

@@ -9,7 +9,7 @@ function GameMap(props) {
     const [taskAmount, setTaskAmount] = React.useState(0)
     const [checkpointNumber, setCheckpointNumber] = React.useState(0)
     const [inActive, setInActive] = React.useState('')
-    const checkpointNumbers = [1,2,3,4]
+    const checkpointNumbers = []
     for (let i = 1; i < Number(props.checkpointAmount)+1; i++) {
         checkpointNumbers.push(i)
     }

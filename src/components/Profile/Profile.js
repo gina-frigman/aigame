@@ -25,7 +25,6 @@ function Profile(props) {
                         <p className='account__text accont__text_short'>{currentUser.login}</p>
                     </div>
                     </div>
-                </div>
             </section>
         </>
     )

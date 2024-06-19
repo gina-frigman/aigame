@@ -12,8 +12,6 @@ import star from "../../images/star.svg"
 import nebula from "../../images/nebula.svg"
 import comet from "../../images/comet.svg"
 
-
-
 function CreateGame(props) {
     const [isClassOpened, setIsClassOpened] = React.useState(false)
     const [level, setLevel] = React.useState(0)
@@ -38,9 +36,6 @@ function CreateGame(props) {
             ...formValue,
             [name]: value
         })
-
-        console.log(name, value)
-
     }
 
     function handleCheckpointChange(evt) {
@@ -52,7 +47,6 @@ function CreateGame(props) {
     }
 
     function handleCheckpointSubmit() {
-        setCheckpointNumber(checkpointNumber +1)
         const checkpoints_copy= checkpoints.slice()
         checkpoints_copy.push(checkpointValue)
         setCheckpoints(checkpoints_copy)
@@ -61,9 +55,12 @@ function CreateGame(props) {
             topic: '',
             link: '',
         })
+        if (checkpointNumber < Number(formValue.count_checkpoints)) {
+            setCheckpointNumber(checkpointNumber +1)
+        } else {
+            props.onSubmit(formValue)
+        }
     }
-    
-    console.log(formValue)
 
     function handleClassClick() {
         setIsClassOpened(!isClassOpened)

@@ -44,8 +44,9 @@
 	font-family: "Segoe", Arial, Helvetica, sans-serif;
 	font-weight: bold;
 	font-size: 33px;
-	width: 100%;
-	
+	width: 100%;	
+    padding-left: 19px;
+    box-sizing: border-box;
 }
 
 .create__input:focus-visible {
@@ -101,14 +102,14 @@
 
 .create__container {
 	position: absolute;
-	z-index: 100;
+	z-index: 11;
 	background-color: #9FC7F8;
 }
 
 
 .create__input_box-item {
 	position: relative;
-	z-index: 100;
+	z-index: 11;
 
 	font-family: "Segoe", Arial, Helvetica, sans-serif;
 	font-weight: bold;
@@ -177,7 +178,7 @@
 	font-weight: bold;
 	color: #515A81;
 	margin: 0 auto;
-	padding-left: 10px;
+	padding-left: 19px;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -187,6 +188,7 @@
 .create__input_submit {
 	width: 500px;
 	background-color: #fff;
+    cursor: pointer;
 }
 
 .disable-bg {
@@ -224,7 +226,6 @@
 }
 
 .text_class {
-	margin-left: 19px;
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
@@ -241,4 +242,8 @@
 	outline-offset: -4px;
 	border-radius: 3px;
 	background-color: #515A81;
+}
+
+.create__label {
+    cursor: pointer;
 }
