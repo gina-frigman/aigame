@@ -12,6 +12,10 @@
 	align-items: center;
 }
 
+.create {
+	overflow: hidden;
+}
+
 .create__form {
 	display: flex;
 	width: 70vw;

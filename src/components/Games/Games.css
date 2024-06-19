@@ -1,13 +1,14 @@
 .games {
-    width: 100%;
-    min-height: calc(100vh - 90px);
-    background-image: url('../../images/backgroundSpace.svg');
-    background-size: contain;
+    width: 100vw;
+    max-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 100;
 }
 
 .games__container {
     width: 100%;
-    min-height: calc(100vh - 90px);
+    height: 100vh;
     background-color: rgba(0, 0, 0, .6);
     display: flex;
     flex-direction: column;

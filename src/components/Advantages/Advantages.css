@@ -35,7 +35,7 @@
 	flex-direction: row;
 	justify-content: space-around;
 	position: relative;
-	width: 1440px;
+	max-width: 1440px;
 }
 
 .main__bg-adv {

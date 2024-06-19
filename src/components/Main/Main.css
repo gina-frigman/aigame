@@ -19,7 +19,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 .main__bg {
@@ -279,7 +279,7 @@
 }
 
 .main__text {
-	font-size: 33px;;
+	font-size: 43px;;
 }
 
 
