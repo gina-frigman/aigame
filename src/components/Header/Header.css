@@ -53,13 +53,24 @@
     font-size: 25px;
     border-radius: 10px;
     box-sizing: border-box;
-    color: #85ABDD;
+    
     padding: 0 15px;
     cursor: pointer;
     margin-right: 15px;
     font-weight: 900;
     line-height: 20px;
     cursor: pointer;
+}
+
+.header__button_white {
+    background-color: #fff;
+    color: #85ABDD;
+    transition: .6s;
+}
+
+.header__button_white:hover {
+    background-color: #9FC7F8;
+    color: #1C1032;
 }
 
 .header__button_game {
@@ -99,8 +110,11 @@
 .header__button_blue {
     background-color: #9FC7F8;
     color: #1C1032;
+    transition: .6s;
 }
 
 .header__button_blue:hover {
+    background-color: #fff;
+    color: #85ABDD; 
     cursor: pointer;
 }

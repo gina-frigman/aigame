@@ -19,6 +19,7 @@
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	/* overflow: hidden; */
 }
 
 .main__bg {
@@ -257,6 +258,10 @@
 }
 
 .main__create-game {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	width: 464px;
 	height: 86px;
 	border-radius: 10px;
@@ -267,7 +272,14 @@
 	font-weight: 600;
 	font-size: 33px;
 	color: #1C1032;
+	text-decoration: none;
+
+	box-shadow: 0 0 100px 0 rgba(255, 255, 255, 25%);
 	
+}
+
+.main__text {
+	font-size: 43px;;
 }
 
 

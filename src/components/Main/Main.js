@@ -168,7 +168,8 @@ function Main(props) {
 
                 <img className='main__logo' width={"50%"} src={mainLogo} alt='ии игра' />
                 <p className='main__text'>Инновационная AI игра</p>
-                <button onClick={handleCreateGameClick}> СОЗДАТЬ ИГРУ </button>
+
+                <button className='main__create-game' onClick={handleCreateGameClick}> СОЗДАТЬ ИГРУ </button>
 
                 <div className='sun'>
                 <img src={sun} width="400px" alt=""/> 

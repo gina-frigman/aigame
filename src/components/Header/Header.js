@@ -51,7 +51,7 @@ function Header(props) {
                 <Link className="header__link" to='/profile'><img className="header__avatar" src={props.avatar ? props.avatar : avatar} alt="аватар"/></Link>
             </div> :
             <div className="header__auth">
-                <button className="header__button" onClick={handleLoginClick}>Вход</button>
+                <button className="header__button header__button_white" onClick={handleLoginClick}>Вход</button>
                 <button className="header__button header__button_blue" onClick={handleRegisterClick}>Регистрация</button>
             </div>
         }

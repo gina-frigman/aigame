@@ -1,11 +1,12 @@
 .advantages {
-	max-width: 1500px;
+	max-width: 1540px;
 	height: 100vh;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+	overflow: hidden;
 }
 
 .moon-adv {
@@ -34,7 +35,7 @@
 	flex-direction: row;
 	justify-content: space-around;
 	position: relative;
-	width: 100%;
+	max-width: 1440px;
 }
 
 .main__bg-adv {
@@ -43,6 +44,7 @@
 	height: 100%;
 	background-image: url("../../images/Fon2.svg");
 	background-size: 1490px;
+	background-repeat: no-repeat;
 	z-index: -100;
 }
 
@@ -102,4 +104,41 @@ ul, li {
 .descr-moon {
 	position: relative;
 
+}
+
+
+@keyframes fallen {
+	to {
+	  top: var(--end-top);
+	  left: var(--end-left);
+	}
+}
+
+@media (width > 1206px) and (width < 1439px) {
+  .main__bg-adv {
+	  width: 1524px;
+  }
+
+  .advantages {
+	  width: 1524px;
+	  background-size: 1524px;
+  }
+
+}
+
+@media (width < 1205px) {
+  .main__bg-adv {
+	  width: 1524px;
+  }
+
+  .advantages {
+	  width: 1540px;
+	  background-size: 1540px;
+  }
+
+  .moon-adv {
+	  left: 10px;
+  }
+
+  
 }

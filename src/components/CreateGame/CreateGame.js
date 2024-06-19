@@ -39,6 +39,8 @@ function CreateGame(props) {
             [name]: value
         })
 
+        console.log(name, value)
+
     }
 
     function handleCheckpointChange(evt) {
@@ -272,16 +274,15 @@ function CreateGame(props) {
                         </div>
 
                         <div className='create__flexbox create_form-item disable-bg'>
-                            <label className='create__label create__label_status' htmlFor="Приватная">
+                            <label className='create__label create__label_status' for="Приватная">
+                                <input style={{display: "none"}} className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={'Приватная'} onChange={handleChange} />
                                 <span className="radio"></span>
                                 Приватная
-                                <input style={{display: "none"}} className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
-                                
                             </label>
-                            <label className='create__label create__label_status' htmlFor="Публичная">
-                                <span className="radio"></span>
+                            <label className='create__label create__label_status' for="Публичная">
+                               <input style={{display: "none"}} className='create__input create__input_radio' id='Публичная' type='radio' name='status' value={'Публичная'} onChange={handleChange} />
+                               <span className="radio"></span>
                                 Публичная
-                               <input style={{display: "none"}} className='create__input create__input_radio' id='Публичная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
                             </label>
                         </div>
 
