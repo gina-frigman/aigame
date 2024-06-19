@@ -1,54 +1,102 @@
-function MainApi(props) {
-    const baseUrl = props.baseUrl
-    const headers = props.headers
+class MainApi {
+    constructor(props) {
+        this.baseUrl = props.baseUrl
+    }
 
-    function _checkResponseData(res) {
+    _checkResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`err ${res.status}`)
+        } else {
+            return res.json()
         }
     }
     
-    function getUserInfo(token) {
-        return fetch(`${baseUrl}/api/auth/users`, {
+    getUserInfo(token) {
+        return fetch(`${this.baseUrl}/api/auth/users/`, {
             headers: {
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Token ${token}`
             }
         })
-        .then(_checkResponseData)
+        .then(this._checkResponseData)
     }
 
-    function getGames(token) {
-        return fetch(`${baseUrl}/api/game`, {
+    getGames(token) {
+        return fetch(`${this.baseUrl}/api/game/`, {
             headers: {
-                "Authorization": `Bearer ${token}`
+                "Authorization": `Token ${token}`
             }
         })
-        .then(_checkResponseData)
+        .then(this._checkResponseData)
     }
 
-    function createGame(data, token) {
-        return fetch(`${baseUrl}/api/create-game`, {
+    createGame(data, token) {
+        return fetch(`${this.baseUrl}/api/create-game/`, {
+            method: "POST",
             headers: {
-                method: "POST",
-                headers: headers,
-                body: JSON.stringify({
-                    "name": data.name,
-                    "class": data.class,
-                    "count-checkpoint": data.countCheckpoint,
-                    "status": data.status,
-                    "background": data.background,
-                    "checkpoint": data.checkpoint,
-                    "token": token
-                })
-            }
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "name": data.name,
+                "class": data.class,
+                "count-checkpoint": data.countCheckpoint,
+                "status": data.status,
+                "background": data.background,
+                "checkpoint": data.checkpoint,
+                "token": token
+            })
+            
         })
-        .then(_checkResponseData)
+        .then(this._checkResponseData)
+    }
+
+    getTask(userClass, topic, token) {
+        return fetch(`${this.baseUrl}/api/crete-task/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "class_user": userClass,
+                "topic": topic
+            }) 
+        })
+        .then(this._checkResponseData)
+    }
+
+    saveProgress(gameId, taskId, checkpointNumber, taskNumber, token) {
+        return fetch(`${this.baseUrl}/api/create-progress/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                "id_game": gameId,
+                "id_task": taskId,
+                "chckpoint": checkpointNumber,
+                "task": taskNumber
+            })
+        })
+        .then(this._checkResponseData)
+    }
+
+    getProgress(id, token) {
+        return fetch(`${this.baseUrl}/api/progress/`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Token ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "id_game": id
+            })
+        })
+        .then(this._checkResponseData)
     }
 }
 
 export const mainApi = new MainApi({
-    baseUrl: 'http://mistikqw.beget.tech',
-    headers: {
-        "content-type": "application/json"
-    }
+    baseUrl: 'http://mistikqw.beget.tech'
 })

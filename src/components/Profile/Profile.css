@@ -1,0 +1,71 @@
+.account {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background-image: url("../../images/backgroundSpace.svg");
+}
+
+.account__data {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.account__header {
+    font-size: 37px;
+    padding-top: 70px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 48px;
+}
+
+.account__flexbox {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 45px;
+}
+
+.account__container {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.account__avatar {
+    width: 25%;
+    border-radius: 100%;
+    border: 4px #fff solid;
+}
+
+.account__text {
+    height: 112px;
+    background-color: rgba(124, 174, 233, 1);
+    font-size: 33px;
+    color: rgba(225, 224, 229, 1);
+    border-radius: 20px;
+    margin: 0 0 48px;
+    font-weight: 900;
+    padding-left: 49px;
+    padding-top: 44px;
+    line-height: 23px;
+    box-sizing: border-box;
+}
+
+.account__text_class {
+    width: 95%; 
+}
+
+.account__flex-box {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin-bottom: 80   px;
+}
+
+.accont__text_short {
+    width: 49%;
+}

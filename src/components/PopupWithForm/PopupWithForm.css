@@ -44,7 +44,6 @@
 
 .popup__name {
     font-size: 28px;
-
 }
 
 .popup__name-img {
@@ -70,9 +69,26 @@
     text-align: center;
 }
 
+.popup__text-task {
+    font-size: 30px;
+    color: #9FC7F8;
+    margin: auto 16px ;
+    line-height: 21px;
+    font-weight: 900;
+}
+
 .popup__form {
     display: flex;
     flex-direction: column;
+    max-width: 357px;
+}
+
+.popup__form_answer {
+    min-width: 75%;
+}
+
+.popup__form_register {
+    min-width: 80%;
 }
 
 .popup__flex-box {
@@ -93,7 +109,6 @@
 .popup__input {
     height: 68px;
     align-self: center;
-    max-width: 357px;
     margin-bottom: 33px;
     background-color: #9FC7F8;
     border-radius: 15px;
@@ -102,10 +117,29 @@
     color: #1C1032;
     font-weight: 900;
 }
-    ::-webkit-input-placeholder {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}
-    ::-moz-placeholder          {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}/* Firefox 19+ */
-    :-moz-placeholder           {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}/* Firefox 18- */
-    :-ms-input-placeholder      {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}
+::-webkit-input-placeholder {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}
+::-moz-placeholder          {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}/* Firefox 19+ */
+:-moz-placeholder           {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#1C1032; font-size: 28px; font-weight: 900; opacity: .6;}
+
+.popup__input_answer {  
+    width: 100%;
+
+}
+::-webkit-input-placeholder {color:#1C1032; font-size: 28px; font-weight: 900; opacity: 1;}
+::-moz-placeholder          {color:#1C1032; font-size: 28px; font-weight: 900; opacity: 1;}/* Firefox 19+ */
+:-moz-placeholder           {color:#1C1032; font-size: 28px; font-weight: 900; opacity: 1;}/* Firefox 18- */
+:-ms-input-placeholder      {color:#1C1032; font-size: 28px; font-weight: 900; opacity: 1;}
+
+.popup__task-text {
+    width: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 239px;
+    color:#1C1032; 
+    font-size: 28px; 
+    font-weight: 900;
+}
 
 .popup__text {
     margin-bottom: 15px;
