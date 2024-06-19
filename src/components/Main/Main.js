@@ -10,11 +10,11 @@ import star_round from "../../images/star_round.svg"
 import star from "../../images/star.svg"
 import nebula from "../../images/nebula.svg"
 import comet from "../../images/comet.svg"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 function Main(props) {
-
+    const navigate = useNavigate()
     let [startLeft, setStartLeft] = useState(0);
     let [endLeft, setEndLeft] = useState(0);
 
@@ -31,6 +31,10 @@ function Main(props) {
         .setProperty('--start-left', `${startLeft}px`);
         document.documentElement.style
         .setProperty('--end-left', `${endLeft}px`);
+    }
+
+    function handleCreateGameClick() {
+        props.isLoggedIn ? navigate("/create-game", {replace: true}) : props.onUnloggedClick()
     }
 
     return (
@@ -164,7 +168,8 @@ function Main(props) {
 
                 <img className='main__logo' width={"50%"} src={mainLogo} alt='ии игра' />
                 <p className='main__text'>Инновационная AI игра</p>
-                <Link className='main__create-game' to='/create-game'> СОЗДАТЬ ИГРУ </Link>
+
+                <button className='main__create-game' onClick={handleCreateGameClick}> СОЗДАТЬ ИГРУ </button>
 
                 <div className='sun'>
                 <img src={sun} width="400px" alt=""/> 

@@ -143,7 +143,9 @@ function Games(props) {
                     <h1 className="games__header">Игры</h1>
                     <div className="games__cards">
                         {props.games.map(game => (
+                            game.status === 'public' ?
                             <Game name={game.title} avatar={game.img} key={game.id} id={game.id} />
+                            : <></>
                         ))}
                     </div>
                     <Link to="/create-game" className="games__button">Создать игру</Link>

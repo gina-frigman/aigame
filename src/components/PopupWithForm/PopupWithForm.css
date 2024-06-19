@@ -9,6 +9,7 @@
     visibility: hidden;
     display: flex;
     justify-content: center;
+    z-index: 50;
 }
 
 .popup_opened {
@@ -81,7 +82,7 @@
 .popup__form {
     display: flex;
     flex-direction: column;
-    max-width: 357px;
+    max-width: 405px;
 }
 
 .popup__form_answer {

@@ -12,7 +12,7 @@ class MainApi {
     }
     
     getUserInfo(token) {
-        return fetch(`${this.baseUrl}/api/auth/users/`, {
+        return fetch(`${this.baseUrl}/api/info-user/`, {
             headers: {
                 "Authorization": `Token ${token}`
             }
@@ -39,7 +39,7 @@ class MainApi {
             body: JSON.stringify({
                 "name": data.name,
                 "class": data.class,
-                "count-checkpoint": data.countCheckpoint,
+                "count-checkpoint": data.count_checkpoints,
                 "status": data.status,
                 "background": data.background,
                 "checkpoint": data.checkpoint,

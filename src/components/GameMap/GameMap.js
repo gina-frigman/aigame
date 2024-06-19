@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../Header/Header";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import "./GameMap.css"
+import End from "../End/End";
 
 function GameMap(props) {
     const [taskNumber, setTaskNumber] = React.useState(1)
@@ -12,6 +13,8 @@ function GameMap(props) {
     for (let i = 1; i < Number(props.checkpointAmount)+1; i++) {
         checkpointNumbers.push(i)
     }
+
+    console.log(props.taskAnswer)
 
     function handleClick(evt) {
         const numberTask = Number(evt.target.getAttribute('taskCount'))-props.progress[Number(evt.target.getAttribute('num'))-1]+1
@@ -40,7 +43,6 @@ function GameMap(props) {
 
     function handleSubmit(evt) {
         evt.preventDefault()
-        console.log(props.taskAnswer)
         if (formValue.answer === props.taskAnswer) {
             setFormValue({
                 answer: ''
@@ -73,10 +75,11 @@ function GameMap(props) {
                         name={String(num)} num={num} key={num}>{num}</button>
                     ))}
                 </div>
-                <button className="map__button" type="submit">Завершить</button>
+                <button className="map__button" onClick={props.onEndGame} type="submit">Завершить</button>
             </section>
             <PopupWithForm name="answer" isOpened={props.isOpened} onClose={handleClose} formValue={formValue} onChange={handleChange} checkpointNumber={props.checkpointNumber} 
             taskNumber={taskNumber} taskText={props.taskText} taskAmount={taskAmount} onSubmit={handleSubmit} />
+            <End isOpened={props.isEndOpened} onSignOutClick={props.onSignOutClick} />
         </>
     )
 }

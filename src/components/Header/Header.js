@@ -36,8 +36,8 @@ function Header(props) {
         :
         <nav className="header__navbar">
             <Link to='/' className="header__text">Главная</Link>
-            <Link to='/games' className="header__text">Игры</Link>
-            <Link to='/create-game' className="header__text">Создать игру</Link>
+            <Link to='/games' className={`header__text ${props.isLoggedIn ? '' : "header__text_unlogged"}`}>Игры</Link>
+            <Link to='/create-game' className={`header__text ${props.isLoggedIn ? '' : "header__text_unlogged"}`}>Создать игру</Link>
         </nav>
         }
         {props.name ?
