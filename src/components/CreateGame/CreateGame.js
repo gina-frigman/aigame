@@ -271,15 +271,14 @@ function CreateGame(props) {
 
                         <div className='create__flexbox create_form-item disable-bg'>
                             <label className='create__label create__label_status' for="Приватная">
+                                <input style={{display: "none"}} className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
                                 <span className="radio"></span>
                                 Приватная
-                                <input style={{display: "none"}} className='create__input create__input_radio' id='Приватная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
-                                
                             </label>
                             <label className='create__label create__label_status' for="Публичная">
-                                <span className="radio"></span>
-                                Публичная
                                <input style={{display: "none"}} className='create__input create__input_radio' id='Публичная' type='radio' name='status' value={formValue.status} onChange={handleChange} />
+                               <span className="radio"></span>
+                                Публичная
                             </label>
                         </div>
 

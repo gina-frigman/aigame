@@ -164,7 +164,7 @@ function Main(props) {
 
                 <img className='main__logo' width={"50%"} src={mainLogo} alt='ии игра' />
                 <p className='main__text'>Инновационная AI игра</p>
-                <Link  to='/create-game'> СОЗДАТЬ ИГРУ </Link>
+                <Link className='main__create-game' to='/create-game'> СОЗДАТЬ ИГРУ </Link>
 
                 <div className='sun'>
                 <img src={sun} width="400px" alt=""/> 
