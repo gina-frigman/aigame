@@ -13,12 +13,7 @@ function Advantages() {
     return(
         <section className='advantages'>
             <div className='main__bg-adv'>
-                    <div className='comet comet_top-center'>
-                        <img src={comet} alt=""/>
-                    </div>
-                    <div className='comet comet_top-right'>
-                        <img src={comet} alt=""/>
-                    </div>
+                    
                     <div className='comet comet_right'>
                         <img src={comet} width="110px" alt=""/>
                     </div>

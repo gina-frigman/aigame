@@ -67,12 +67,15 @@ function GameMap(props) {
             <Header name="game" onSignOutClick={props.onSignOutClick} />
             <section className="map">
                 <div className="map__checkpoints">
-                    {checkpointNumbers.map(num => (
-                        <button className={`map__checkpoint  ${props.progress[num-1] === 0 ? "map__checkpoint_inactive" : num === Number(checkpointNumber) ? inActive : ''} ${num % 3 === 0 ? 'map__checkpoint_green' : num % 2 === 0 ? 'map__checkpoint_yellow' : 'map__checkpoint_blue'} `} 
+                    {checkpointNumbers.map(num => ( 
+                        <div className="map_check">
+                            
+                            <button className={`map__checkpoint  ${props.progress[num-1] === 0 ? "map__checkpoint_inactive" : num === Number(checkpointNumber) ? inActive : ''} ${num % 3 === 0 ? 'map__checkpoint_green' : num % 2 === 0 ? 'map__checkpoint_yellow' : 'map__checkpoint_blue'} `} 
                         onClick={handleClick} 
                         taskCount={props.game.checkpoint[num-1].task_count} 
                         id={props.game.checkpoint[num-1].id} 
                         name={String(num)} num={num} key={num}>{num}</button>
+                        </div>
                     ))}
                 </div>
                 <button className="map__button" onClick={props.onEndGame} type="submit">Завершить</button>

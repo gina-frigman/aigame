@@ -22,16 +22,16 @@ function Main(props) {
         return rad / (Math.PI/180);
       }
 
-    function ani(e) {
-        setStartLeft(Math.floor(Math.random() * 3000));
-        setEndLeft(Math.floor(Math.random() * -1000));
-        e.target.style.rotate = radiansToDegrees(Math)
+    // function ani(e) {
+    //     setStartLeft(Math.floor(Math.random() * 3000));
+    //     setEndLeft(Math.floor(Math.random() * -1000));
+    //     e.target.style.rotate = radiansToDegrees(Math)
         
-        document.documentElement.style
-        .setProperty('--start-left', `${startLeft}px`);
-        document.documentElement.style
-        .setProperty('--end-left', `${endLeft}px`);
-    }
+    //     document.documentElement.style
+    //     .setProperty('--start-left', `${startLeft}px`);
+    //     document.documentElement.style
+    //     .setProperty('--end-left', `${endLeft}px`);
+    // }
 
     function handleCreateGameClick() {
         props.isLoggedIn ? navigate("/create-game", {replace: true}) : props.onUnloggedClick()
@@ -55,7 +55,7 @@ function Main(props) {
             
             <div className='main__bg'>
                 
-                    <div onAnimationIteration={ e => ani(e)} className='comet comet_top-center'>
+                    <div className='comet comet_top-center'>
                         <img src={comet} alt=""/>
                     </div>
                     <div className='comet comet_top-right'>
@@ -111,7 +111,7 @@ function Main(props) {
                         <div className='star'>
                             <img src={star} alt='' />
                         </div>
-                                                <div className='star'>
+                        <div className='star'>
                             <img src={star} alt='' />
                         </div>
                     </div>

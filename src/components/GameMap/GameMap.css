@@ -20,6 +20,7 @@
 }
 
 .map__checkpoint {
+    width: 122px;
     height: 122px;
     border-radius: 100%;
     color: #fff;
@@ -68,4 +69,15 @@
     padding: 13px 0;
     box-sizing: border-box;
     cursor: pointer;
+}
+
+.line {
+    display: block;
+    background-color: red;
+    width: 137px;
+    height:8px;
+}
+
+.map_check {
+    width: 256px;
 }

@@ -3,7 +3,6 @@
 	width: 90vw;
 	height: 90vh;
 	border-radius: 20px;
-	/* background-color: rgba(64, 52, 88, 50%); */
 	z-index: 10;
 	margin-top: 25px;
 
@@ -246,4 +245,16 @@
 
 .create__label {
     cursor: pointer;
+}
+
+@media (width < 1023) {
+	.create__input_radio:checked + .radio::before { 
+		left: 4px;
+	}
+}
+
+@media (width > 1440) {
+	.create__input_radio:checked + .radio::before { 
+		left: 8px;
+	}
 }

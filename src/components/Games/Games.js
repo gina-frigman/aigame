@@ -30,7 +30,7 @@ function Games(props) {
                 <img src={luna} width="400px" alt=""/>
             </div>
             
-            <div className='main__bg'>
+            <div className='main__bg-games'>
                 
                     <div className='comet comet_top-center'>
                         <img src={comet} alt=""/>
@@ -140,6 +140,9 @@ function Games(props) {
                     <div className='nebula'>
                   <img src={nebula} width="733px" alt='' />
                 </div>
+                
+                </div>
+
                 <div className="games__container">
                     <h1 className="games__header">Игры</h1>
                     <div className="games__cards">
@@ -155,8 +158,40 @@ function Games(props) {
                     </div>
                     <Link to="/create-game" className="games__button">Создать игру</Link>
                 </div>
+                
+                <div className='sun'>
+                <img src={sun} width="400px" alt=""/> 
+
+                <div className='starRoundGroup-sunBottom group'>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
                 </div>
 
+                <div className='starRoundGroup-sunLeft group'>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
+                </div>
+
+                <div className='starRoundGroup-sunTop group'>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
+                    <div className='star_round'>
+                        <img src={star_round} alt='' />
+                    </div>
+                </div>
+            </div>
+            <div className='jupiter'>
+                <img src={jupiter} width="500px" alt=""/>
+            </div>
                 
             </main>
         </div>
