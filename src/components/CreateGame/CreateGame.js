@@ -34,9 +34,11 @@ function CreateGame(props) {
         const {name, value} = evt.target
         setFormValue({
             ...formValue,
+            checkpoint: checkpoints,
             [name]: value
         })
     }
+    console.log(formValue.checkpoint)
 
     function handleCheckpointChange(evt) {
         const {name, value} = evt.target
@@ -47,6 +49,7 @@ function CreateGame(props) {
     }
 
     function handleCheckpointSubmit() {
+        setCheckpointNumber(checkpointNumber+1)
         const checkpoints_copy= checkpoints.slice()
         checkpoints_copy.push(checkpointValue)
         setCheckpoints(checkpoints_copy)
@@ -55,11 +58,10 @@ function CreateGame(props) {
             topic: '',
             link: '',
         })
-        if (checkpointNumber < Number(formValue.count_checkpoints)) {
-            setCheckpointNumber(checkpointNumber +1)
-        } else {
-            props.onSubmit(formValue)
-        }
+        setFormValue({
+            ...formValue,
+            checkpoint: checkpoints
+        })
     }
 
     function handleClassClick() {
