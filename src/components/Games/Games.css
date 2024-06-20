@@ -22,7 +22,7 @@
 .games__header {
     font-size: 62px;
     margin: 0 0 80px;
-    padding-top: 57px;
+    padding-top: 97px;
     text-align: center;
     color: #fff;
     font-weight: 900;
@@ -51,7 +51,14 @@
     padding: 13px 0;
     box-sizing: border-box;
     cursor: pointer;
+    transition: .6s;
 }
+
+.games__button:hover {
+    background-color: #9FC7F8;
+    color: #fff;
+}
+
 .main__bg-games {
         position: absolute;
         width: 100%;

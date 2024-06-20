@@ -259,6 +259,8 @@
 	height: 86px;
 	border-radius: 10px;
 	border: 0;
+	cursor: pointer;
+	transition: .6s;
 
 	background-color: #A2C8F6;
 
@@ -269,6 +271,11 @@
 
 	box-shadow: 0 0 100px 0 rgba(255, 255, 255, 25%);
 	
+}
+
+.main__create-game:hover {
+	background-color: #fff;
+	color: #85ABDD;
 }
 
 .main__text {

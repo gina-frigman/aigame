@@ -189,6 +189,12 @@
 	width: 500px;
 	background-color: #fff;
     cursor: pointer;
+	transition: .6s;
+}
+
+.create__input_submit:hover {
+	background-color: #9FC7F8;
+	color: #fff;
 }
 
 .disable-bg {
@@ -228,6 +234,7 @@
 .text_class {
 	margin-top: 0px;
 	margin-bottom: 0px;
+	cursor: pointer;
 }
 
 .create__input_radio:checked + .radio::before {

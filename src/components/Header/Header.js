@@ -47,7 +47,7 @@ function Header(props) {
             </div>       
         : props.isLoggedIn ? 
             <div className="header__profile">
-                <button className="header__button" onClick={handleSignOutClick}>Выход</button>
+                <button className="header__button header__button_signout" onClick={handleSignOutClick}>Выход</button>
                 <Link className="header__link" to='/profile'><img className="header__avatar" src={props.avatar ? props.avatar : avatar} alt="аватар"/></Link>
             </div> :
             <div className="header__auth">

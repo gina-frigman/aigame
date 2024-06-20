@@ -27,19 +27,18 @@ function CreateGame(props) {
         class: '',
         status: '',
         background: '',
-        checkpoint: checkpoints,
+        checkpoint: [],
     })
 
     function handleChange(evt) {
         const {name, value} = evt.target
         setFormValue({
             ...formValue,
-            checkpoint: checkpoints,
             [name]: value
         })
     }
-    console.log(formValue.checkpoint)
 
+    console.log(formValue)
     function handleCheckpointChange(evt) {
         const {name, value} = evt.target
         setCheckpointValue({
@@ -49,7 +48,6 @@ function CreateGame(props) {
     }
 
     function handleCheckpointSubmit() {
-        setCheckpointNumber(checkpointNumber+1)
         const checkpoints_copy= checkpoints.slice()
         checkpoints_copy.push(checkpointValue)
         setCheckpoints(checkpoints_copy)
@@ -60,8 +58,14 @@ function CreateGame(props) {
         })
         setFormValue({
             ...formValue,
-            checkpoint: checkpoints
+            checkpoint: checkpoints_copy,
         })
+        console.log(checkpointNumber === Number(props.checkpointAmount))
+        if (checkpointNumber < Number(props.checkpointAmount)) {
+            setCheckpointNumber(checkpointNumber+1)
+        } else {
+            handleSubmit()
+        }
     }
 
     function handleClassClick() {
@@ -74,13 +78,12 @@ function CreateGame(props) {
         setCheckpointNumber(1)
     }
 
-    function handleSubmit(evt) {
-        evt.preventDefault()
+    function handleSubmit() {
         setLevel(level + 1)
         if (level === 0) {
             props.onCheckpointClick()
         }
-        else if (level === 2) {
+        else {
             props.onSubmit(formValue)
             setLevel(0)
         }
@@ -269,7 +272,7 @@ function CreateGame(props) {
                         </div>
 
                         <div className='count_checkpoints create_form-item'>
-                            <input className='create__input create_form-item' type='text' name='count_checkpoints' placeholder='Количество точек с заданиями' value={formValue.checkpoints} onChange={handleChange} />
+                            <input className='create__input create_form-item' type='text' name='count_checkpoints' placeholder='Количество точек с заданиями (больше 1)' value={formValue.checkpoints} onChange={handleChange} />
                         </div>
 
                         <div className='create__flexbox create_form-item disable-bg'>
@@ -289,12 +292,12 @@ function CreateGame(props) {
                         <div className='create_form-item create__input_file'> 
                             <label className='create__label'>
                                 <p className='text'>
-                                    Прикрепите файл для обложки
+                                    Прикрепите файл для обложки (только png)
                                 </p>
-                                <input className='create__input create__input_file-item create_form-item' type='file' name='background' placeholder='Прикрепите файл для фона' onChange={handleChange} value={formValue.background} required />
+                                <input className='create__input create__input_file-item create_form-item' type='file' name='background' placeholder='Прикрепите файл для фона (png)' onChange={handleChange} value={formValue.background} required />
                             </label>
                         </div>
-                        <button className='create__input create__input_submit create_form-item' type='submit' name='createGame' id='createGame' onClick={handleSubmit}>Создать игру</button>
+                        <button className='create__input create__input_submit create_form-item' name='createGame' id='createGame' onClick={handleSubmit}>Создать игру</button>
                     </form>
                 </div>
                 <div className='sun'>

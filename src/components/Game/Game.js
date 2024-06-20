@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './Game.css'
 
 function Game(props) {
+    console.log(props)
     return(
         <section className="game">
             {props.avatar ?

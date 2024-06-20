@@ -61,8 +61,12 @@ function App() {
 
     React.useEffect(() => {
         if (pathname === "/map") {
-            setGame(games[Number(hash.split('#')[1])-3])
-            setCheckpointAmount(games[Number(hash.split('#')[1])-3].count_checkpoint)
+            setGame(games.at(games.findIndex(function(obj) {
+                return obj.id === Number(hash.split('#')[1])
+            })))
+            setCheckpointAmount(games.at(games.findIndex(function(obj) {
+                return obj.id === Number(hash.split('#')[1])
+            })).count_checkpoint)
             mainApi.getProgress(hash.split('#')[1], localStorage.jwt)
             .then(res => setProgress(res.progress))
         }
@@ -139,6 +143,7 @@ function App() {
         .catch(err => console.log(err))
     }
 
+    console.log(games)
     function handleSignOutClick() {
         authApi.signOut(localStorage.jwt)
         .then(res => {
@@ -151,8 +156,11 @@ function App() {
     }
 
     function handleCreateGame(formValue) {
+        console.log(formValue)
+        console.log('meow1')
         mainApi.createGame(formValue, localStorage.jwt)
         .then(res => {
+            console.log('meow4')
             setGames([res, ...games])
             closeAllPopups()
             navigate("/")
@@ -166,7 +174,6 @@ function App() {
     function handleEndGame() {
         setIsEndOpened(true)
     }
-    console.log(game)
 
     return(
         <div className="app">

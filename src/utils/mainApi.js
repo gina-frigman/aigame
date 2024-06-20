@@ -7,6 +7,7 @@ class MainApi {
         if (!res.ok) {
             return Promise.reject(`err ${res.status}`)
         } else {
+            console.log('meow3')
             return res.json()
         }
     }
@@ -30,6 +31,7 @@ class MainApi {
     }
 
     createGame(data, token) {
+        console.log('meow2')
         return fetch(`${this.baseUrl}/api/create-game/`, {
             method: "POST",
             headers: {

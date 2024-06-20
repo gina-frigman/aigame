@@ -34,6 +34,11 @@
     color: #fff;
     display: flex;
     align-items: center;
+    transition: .6s;
+}
+
+.header__text:hover {
+    opacity: .6;
 }
 
 .header__text_unlogged {
@@ -79,6 +84,15 @@
     padding: 15px 51px;
 }
 
+.header__button_signout {
+    transition: .6s;
+}
+
+.header__button_signout:hover {
+    background-color: #9FC7F8;
+    color: #fff;
+}
+
 .header__close {
     border: 0;
     background-color: rgba(0, 0, 0, 0);
@@ -105,6 +119,11 @@
     border: 1px #fff solid;
     padding: 5px;
     object-fit: cover;
+    transition: .6s;
+}
+
+.header__avatar:hover {
+    opacity: .6;
 }
 
 .header__button_blue {
